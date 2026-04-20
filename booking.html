@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Appointment | Hetal's Beautology Clinic</title>
+  <meta name="description"
+    content="Book an appointment at Hetal's Beautology Clinic in Gandhinagar, Gujarat. Choose your service, select a date and time, pay a ₹500 advance and confirm via WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ============================================
+       BOOKING PAGE — Page-scoped styles
+       ============================================ */
+
+    /* ── Step Indicator ── */
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 3rem auto 2.5rem;
+      max-width: 520px;
+    }
+
+    .step-dot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-dot .dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--blush);
+      border: 3px solid var(--blush-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #bbb;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .step-dot .step-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #bbb;
+      font-family: 'Raleway', sans-serif;
+      transition: color 0.4s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .step-dot.active .dot {
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      border-color: var(--rose);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(194,24,91,0.4);
+      transform: scale(1.1);
+    }
+
+    .step-dot.active .step-label { color: var(--rose); }
+
+    .step-dot.done .dot {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-color: var(--gold);
+      color: var(--charcoal);
+      box-shadow: 0 4px 14px rgba(201,168,76,0.3);
+    }
+
+    .step-dot.done .step-label { color: var(--gold); }
+
+    .step-connector {
+      flex: 1;
+      height: 3px;
+      background: var(--blush-mid);
+      margin-bottom: 1.5rem;
+      transition: background 0.4s ease;
+      max-width: 80px;
+    }
+
+    .step-connector.done {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    /* ── Booking Wrapper ── */
+    .booking-section {
+      background: var(--ivory);
+      padding: 1rem 0 5rem;
+    }
+
+    .booking-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.8rem 2.8rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--blush-mid);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .step-panel {
+      display: none;
+      animation: stepFadeIn 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .step-panel.active { display: block; }
+
+    @keyframes stepFadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Form Elements ── */
+    .booking-card h2 {
+      font-size: 1.6rem;
+      color: var(--rose);
+      margin-bottom: 0.3rem;
+    }
+
+    .booking-card .step-intro {
+      color: #888;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-group label .required-star {
+      color: var(--rose);
+      margin-left: 2px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 2px solid var(--blush-mid);
+      border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: var(--charcoal);
+      background: var(--ivory);
+      transition: var(--transition);
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--rose);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(194,24,91,0.08);
+    }
+
+    .form-control.error {
+      border-color: #e53935;
+      background: #fff5f5;
+    }
+
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C2185B' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.8rem;
+      cursor: pointer;
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .field-error {
+      color: #e53935;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      font-family: 'Nunito', sans-serif;
+      display: none;
+    }
+
+    .field-error.visible { display: block; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    /* ── Booking Summary Card ── */
+    .booking-summary {
+      background: var(--blush);
+      border: 1px solid var(--blush-mid);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .booking-summary .summary-item {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .booking-summary .s-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: 'Raleway', sans-serif;
+      margin-bottom: 0.15rem;
+    }
+
+    .booking-summary .s-value {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--rose);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    /* ── UPI Payment Card ── */
+    .payment-card {
+      background: linear-gradient(135deg, var(--charcoal), #1a1a2e);
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .payment-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .payment-card h3 {
+      color: var(--gold-light);
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .upi-display {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(201,168,76,0.4);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .upi-id-text {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      letter-spacing: 0.5px;
+    }
+
+    .copy-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--charcoal);
+      border: none;
+      border-radius: 50px;
+      padding: 0.45rem 1rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+      flex-shrink: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .copy-btn:hover { transform: scale(1.05); }
+    .copy-btn.copied { background: linear-gradient(135deg, #4caf50, #81c784); color: white; }
+
+    .qr-box {
+      width: 170px;
+      height: 170px;
+      background: rgba(255,255,255,0.07);
+      border: 2px dashed rgba(201,168,76,0.4);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      gap: 0.5rem;
+    }
+
+    .qr-box .qr-icon { font-size: 2.8rem; opacity: 0.6; }
+
+    .qr-box .qr-hint {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Nunito', sans-serif;
+      text-align: center;
+      padding: 0 0.5rem;
+    }
+
+    .advance-note {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      font-family: 'Nunito', sans-serif;
+      position: relative;
+    }
+
+    .advance-note strong {
+      color: var(--gold-light);
+      font-size: 1.15rem;
+    }
+
+    .upi-apps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .upi-apps span {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* ── Step 3 — Verification ── */
+    .file-upload-zone {
+      border: 2px dashed var(--blush-mid);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      background: var(--ivory);
+    }
+
+    .file-upload-zone:hover, .file-upload-zone.dragover {
+      border-color: var(--rose);
+      background: var(--blush);
+    }
+
+    .file-upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .file-upload-zone .upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+    .file-upload-zone .upload-hint {
+      font-size: 0.88rem;
+      color: #999;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .file-upload-zone .file-name {
+      margin-top: 0.5rem;
+      font-weight: 700;
+      color: var(--rose);
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .file-upload-zone.has-file .file-name { display: block; }
+    .file-upload-zone.has-file .upload-hint { display: none; }
+    .file-upload-zone.has-file .upload-icon { display: none; }
+
+    /* ── Status Messages ── */
+    .upload-status {
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      display: none;
+    }
+
+    .upload-status.loading {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: #7a6200;
+    }
+
+    .upload-status.success {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(76,175,80,0.1);
+      border: 1px solid rgba(76,175,80,0.3);
+      color: #2e7d32;
+      font-weight: 700;
+    }
+
+    .upload-status.error-msg {
+      display: block;
+      background: rgba(229,57,53,0.1);
+      border: 1px solid rgba(229,57,53,0.3);
+      color: #c62828;
+    }
+
+    /* Loading spinner */
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(0,0,0,0.12);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── WhatsApp Button (booking specific) ── */
+    .wa-book-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 18px rgba(37,211,102,0.4);
+      text-decoration: none;
+      margin-top: 1.2rem;
+    }
+
+    .wa-book-btn:hover:not(:disabled) {
+      background: #1DA851;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+      color: white;
+    }
+
+    .wa-book-btn:disabled {
+      background: #ccc;
+      color: #999;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .wa-book-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .confirmation-note {
+      text-align: center;
+      color: #999;
+      font-size: 0.82rem;
+      margin-top: 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ── Navigation buttons ── */
+    .step-nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 2px solid var(--blush-mid);
+      color: #aaa;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-back:hover { border-color: var(--rose); color: var(--rose); }
+
+    .btn-continue {
+      flex: 1;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 18px rgba(194,24,91,0.35);
+    }
+
+    .btn-continue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(194,24,91,0.45);
+    }
+
+    /* ── Nav CTA pill (Book Now button in navbar) ── */
+    .nav-links .nav-book-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--charcoal) !important;
+      padding: 0.42rem 1.1rem !important;
+      border-radius: 50px !important;
+      border-bottom: none !important;
+      box-shadow: 0 3px 12px rgba(201,168,76,0.35);
+      font-weight: 800 !important;
+      transition: var(--transition);
+    }
+
+    .nav-links .nav-book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(201,168,76,0.5);
+      border-bottom: none !important;
+    }
+
+    .mobile-menu .nav-book-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--charcoal) !important;
+      border-radius: 50px !important;
+      border-bottom: none !important;
+      padding: 0.6rem 1.5rem !important;
+      text-align: center !important;
+      box-shadow: 0 3px 12px rgba(201,168,76,0.3);
+      font-weight: 800 !important;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .booking-card {
+        padding: 2rem 1.4rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .step-indicator {
+        margin: 2rem 1rem 1.8rem;
+      }
+
+      .step-connector { max-width: 40px; }
+
+      .upi-display {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+
+      .upi-id-text { font-size: 1.05rem; }
+
+      .booking-summary { gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .step-label { display: none; }
+      .step-dot .dot { width: 36px; height: 36px; font-size: 0.88rem; }
+      .payment-card { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ╔══════════════════════════════════╗
+       ║          NAVIGATION             ║
+       ╚══════════════════════════════════╝ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        Hetal's Beautology Clinic
+        <span>Gandhinagar, Gujarat</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="services.html" id="nav-services">Services</a></li>
+        <li><a href="reviews.html" id="nav-reviews">Reviews</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
+        <li><a href="booking.html" class="nav-book-btn active" id="nav-book">Book Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+      <a href="booking.html" class="nav-book-btn active">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- ╔══════════════════════════════════╗
+       ║           PAGE HEADER           ║
+       ╚══════════════════════════════════╝ -->
+  <header class="page-header">
+    <h1>Book an Appointment</h1>
+    <div class="gold-divider"></div>
+    <p>Secure your slot in 3 easy steps — takes less than 2 minutes</p>
+  </header>
+
+  <!-- ╔══════════════════════════════════╗
+       ║         BOOKING SECTION         ║
+       ╚══════════════════════════════════╝ -->
+  <section class="booking-section">
+    <div class="container">
+
+      <!-- Step Indicator -->
+      <div class="step-indicator" role="progressbar" aria-label="Booking Progress" id="step-indicator">
+        <div class="step-dot active" id="dot-1">
+          <div class="dot">1</div>
+          <span class="step-label">Details</span>
+        </div>
+        <div class="step-connector" id="conn-1"></div>
+        <div class="step-dot" id="dot-2">
+          <div class="dot">2</div>
+          <span class="step-label">Payment</span>
+        </div>
+        <div class="step-connector" id="conn-2"></div>
+        <div class="step-dot" id="dot-3">
+          <div class="dot">3</div>
+          <span class="step-label">Verify</span>
+        </div>
+      </div>
+
+      <!-- Booking Card -->
+      <div class="booking-card fade-in">
+
+        <!-- ─────────────────────────────
+             STEP 1 — Booking Details
+             ───────────────────────────── -->
+        <div class="step-panel active" id="step-1">
+          <h2>Your Booking Details</h2>
+          <p class="step-intro">Fill in your details and choose your preferred appointment slot.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="field-name">Full Name <span class="required-star">*</span></label>
+              <input type="text" id="field-name" class="form-control" placeholder="e.g. Priya Shah" autocomplete="name" />
+              <div class="field-error" id="err-name">Please enter your full name.</div>
+            </div>
+            <div class="form-group">
+              <label for="field-phone">Phone Number <span class="required-star">*</span></label>
+              <input type="tel" id="field-phone" class="form-control" placeholder="e.g. 9876543210" autocomplete="tel" maxlength="10" />
+              <div class="field-error" id="err-phone">Please enter a valid 10-digit mobile number.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="field-service">Service <span class="required-star">*</span></label>
+            <select id="field-service" class="form-control">
+              <option value="" disabled selected>— Select a Service —</option>
+              <optgroup label="⚡ Laser &amp; Advanced Skin Treatments">
+                <option>Laser Hair Removal</option>
+                <option>Laser Skin Therapy</option>
+                <option>Laser Acne Scar Treatment</option>
+                <option>Laser Face Resurfacing</option>
+                <option>Laser Tattoo Removal</option>
+                <option>Laser Skin Tag / Warts / Mole Removal</option>
+                <option>Microderma Abrasion</option>
+                <option>Microneedling (Derma Pen / Derma Roller)</option>
+                <option>Deep Skin Peeling</option>
+                <option>Black Doll Peel / Hollywood Facial</option>
+                <option>Mirapeel</option>
+              </optgroup>
+              <optgroup label="🌿 Facials &amp; Rejuvenation">
+                <option>Vampire Facial (Face PRP)</option>
+                <option>Medi Facial</option>
+                <option>Oxygeneo Facial</option>
+                <option>Hydra Facial</option>
+                <option>BB Glow Treatment</option>
+                <option>Skin Tightening / Face Lifting</option>
+                <option>Skin Brightening Treatment</option>
+                <option>Undereye Dark Circle Treatment</option>
+                <option>Anti Aging Solution</option>
+              </optgroup>
+              <optgroup label="💫 Hair &amp; Specialised Procedures">
+                <option>Hair Fall &amp; Hair Regrowth Treatment (PRP)</option>
+                <option>Permanent Eyebrow / Microblading</option>
+                <option>Permanent Lip Colour</option>
+                <option>Cheek Blush / Beauty Spots</option>
+                <option>Eyelash Lifting / Eyelash Extension</option>
+                <option>Ear Lobe Repair</option>
+              </optgroup>
+            </select>
+            <div class="field-error" id="err-service">Please select a service.</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="field-date">Preferred Date <span class="required-star">*</span></label>
+              <input type="date" id="field-date" class="form-control" />
+              <div class="field-error" id="err-date">Please choose a date (Mon–Sat only).</div>
+            </div>
+            <div class="form-group">
+              <label for="field-time">Preferred Time <span class="required-star">*</span></label>
+              <select id="field-time" class="form-control">
+                <option value="" disabled selected>— Select a Time —</option>
+                <option>10:00 AM</option>
+                <option>10:30 AM</option>
+                <option>11:00 AM</option>
+                <option>11:30 AM</option>
+                <option>12:00 PM</option>
+                <option>12:30 PM</option>
+                <option>1:00 PM</option>
+                <option>1:30 PM</option>
+                <option>2:00 PM</option>
+                <option>2:30 PM</option>
+                <option>3:00 PM</option>
+                <option>3:30 PM</option>
+                <option>4:00 PM</option>
+                <option>4:30 PM</option>
+                <option>5:00 PM</option>
+                <option>5:30 PM</option>
+                <option>6:00 PM</option>
+                <option>6:30 PM</option>
+                <option>7:00 PM</option>
+                <option>7:30 PM</option>
+              </select>
+              <div class="field-error" id="err-time">Please select a preferred time slot.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="field-notes">Additional Notes <span style="color:#bbb;font-weight:500;">(Optional)</span></label>
+            <textarea id="field-notes" class="form-control" placeholder="Any concerns, skin type info, or questions you'd like us to know..."></textarea>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-continue" id="btn-step1-next" onclick="goToStep2()">
+              Continue to Payment &rarr;
+            </button>
+          </div>
+        </div>
+        <!-- /STEP 1 -->
+
+        <!-- ─────────────────────────────
+             STEP 2 — UPI Payment
+             ───────────────────────────── -->
+        <div class="step-panel" id="step-2">
+          <h2>Complete Your Advance Payment</h2>
+          <p class="step-intro">Pay ₹500 advance via UPI to confirm your booking slot.</p>
+
+          <!-- Booking summary -->
+          <div class="booking-summary" id="summary-2">
+            <div class="summary-item">
+              <span class="s-label">Name</span>
+              <span class="s-value" id="s2-name">—</span>
+            </div>
+            <div class="summary-item">
+              <span class="s-label">Service</span>
+              <span class="s-value" id="s2-service">—</span>
+            </div>
+            <div class="summary-item">
+              <span class="s-label">Date</span>
+              <span class="s-value" id="s2-date">—</span>
+            </div>
+            <div class="summary-item">
+              <span class="s-label">Time</span>
+              <span class="s-value" id="s2-time">—</span>
+            </div>
+          </div>
+
+          <!-- Payment Card -->
+          <div class="payment-card">
+            <h3>💳 Pay via UPI</h3>
+
+            <div class="upi-display">
+              <span class="upi-id-text" id="upi-id-text">hetalbeautology@ybl</span>
+              <button class="copy-btn" id="copy-upi-btn" onclick="copyUpi()" type="button">Copy ID</button>
+            </div>
+
+            <div class="qr-box">
+              <div class="qr-icon">⬛</div>
+              <p class="qr-hint">Scan QR to Pay<br><small style="font-size:0.7rem;opacity:0.5;">(QR will be added soon)</small></p>
+            </div>
+
+            <p class="advance-note">
+              Advance Amount: <strong>₹500</strong><br />
+              <span style="font-size:0.82rem;opacity:0.7;margin-top:4px;display:block;">This advance secures your appointment slot.</span>
+            </p>
+
+            <div class="upi-apps">
+              <span>GPay</span>
+              <span>PhonePe</span>
+              <span>Paytm</span>
+              <span>BHIM</span>
+              <span>Any UPI App</span>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" onclick="goToStep(1)" type="button">&larr; Back</button>
+            <button class="btn-continue" onclick="goToStep3()" type="button">
+              I've Made the Payment &rarr;
+            </button>
+          </div>
+        </div>
+        <!-- /STEP 2 -->
+
+        <!-- ─────────────────────────────
+             STEP 3 — Verify Payment
+             ───────────────────────────── -->
+        <div class="step-panel" id="step-3">
+          <h2>Verify Your Payment</h2>
+          <p class="step-intro">Share your transaction ID and payment screenshot to confirm your booking.</p>
+
+          <!-- Booking summary -->
+          <div class="booking-summary" id="summary-3">
+            <div class="summary-item">
+              <span class="s-label">Name</span>
+              <span class="s-value" id="s3-name">—</span>
+            </div>
+            <div class="summary-item">
+              <span class="s-label">Service</span>
+              <span class="s-value" id="s3-service">—</span>
+            </div>
+            <div class="summary-item">
+              <span class="s-label">Date</span>
+              <span class="s-value" id="s3-date">—</span>
+            </div>
+            <div class="summary-item">
+              <span class="s-label">Time</span>
+              <span class="s-value" id="s3-time">—</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="field-txn">UPI Transaction ID <span class="required-star">*</span></label>
+            <input type="text" id="field-txn" class="form-control" placeholder="e.g. 416823479230 or T2504181234567" />
+            <div class="field-error" id="err-txn">Please enter your UPI transaction ID.</div>
+          </div>
+
+          <div class="form-group">
+            <label>Payment Screenshot <span class="required-star">*</span></label>
+            <div class="file-upload-zone" id="upload-zone">
+              <input type="file" id="field-screenshot" accept="image/jpeg,image/png,image/webp" onchange="handleFileSelect(this)" />
+              <div class="upload-icon">🖼️</div>
+              <p class="upload-hint">Click or drag to upload your payment screenshot<br><small>JPG, PNG or WebP</small></p>
+              <p class="file-name" id="file-name-display"></p>
+            </div>
+            <div class="field-error" id="err-screenshot">Please upload your payment screenshot.</div>
+          </div>
+
+          <!-- Upload status -->
+          <div class="upload-status" id="upload-status"></div>
+
+          <!-- WhatsApp Send Button -->
+          <button class="wa-book-btn" id="wa-send-btn" disabled type="button" onclick="sendOnWhatsApp()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Send Booking on WhatsApp
+          </button>
+
+          <p class="confirmation-note">
+            Your booking will be confirmed via WhatsApp within a few hours<br />
+            during clinic hours (Mon–Sat, 10AM–8PM).
+          </p>
+
+          <div class="step-nav" style="margin-top: 1.5rem;">
+            <button class="btn-back" onclick="goToStep(2)" type="button">&larr; Back</button>
+          </div>
+        </div>
+        <!-- /STEP 3 -->
+
+      </div><!-- /.booking-card -->
+    </div><!-- /.container -->
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║             FOOTER              ║
+       ╚══════════════════════════════════╝ -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Hetal's Beautology Clinic</h3>
+        <p class="tagline">Where Science Meets Beauty</p>
+        <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); max-width:320px;">Gandhinagar's premier skin and
+          laser clinic, where every treatment is crafted with expertise and care.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="tel:9429129201">📞 9429129201</a></p>
+        <p style="margin-top:0.6rem;">📍 203, Sarthak Fortune Mall, Nr. City Pulse Cinema, Randesan, Gandhinagar, Gujarat 382426</p>
+        <p style="margin-top:0.6rem;">🕐 Mon–Sat: 10:00 AM – 8:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hetal's Beautology Clinic. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" href="https://wa.me/919429129201" target="_blank" rel="noopener"
+    aria-label="Chat with us on WhatsApp" id="wa-float-btn">
+    <span class="wa-tooltip">Chat with us on WhatsApp</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ─── JavaScript ─── -->
+  <script>
+    /* ──────────────────────────────────────
+       State
+       ────────────────────────────────────── */
+    let currentStep = 1;
+    let uploadedImageUrl = '';  // populated after ImgBB upload
+    const IMGBB_API_KEY = '261c04dd491c593ad497b304862e3a7e'; // ← replace with real key
+
+    /* ──────────────────────────────────────
+       Date picker — disable Sundays & past dates
+       ────────────────────────────────────── */
+    (function initDatePicker() {
+      const dateInput = document.getElementById('field-date');
+      const today = new Date();
+      // Set min to today
+      dateInput.min = today.toISOString().split('T')[0];
+
+      dateInput.addEventListener('change', function () {
+        const d = new Date(this.value + 'T00:00:00');
+        if (d.getDay() === 0) { // Sunday
+          showFieldError('date', 'We are closed on Sundays. Please choose Mon–Sat.');
+          this.value = '';
+        } else {
+          hideFieldError('date');
+        }
+      });
+    })();
+
+    /* ──────────────────────────────────────
+       Step Navigation
+       ────────────────────────────────────── */
+    function goToStep(n) {
+      const panels = document.querySelectorAll('.step-panel');
+      panels.forEach(p => p.classList.remove('active'));
+      document.getElementById('step-' + n).classList.add('active');
+
+      // Update indicator dots
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById('dot-' + i);
+        dot.classList.remove('active', 'done');
+        if (i < n)  dot.classList.add('done');
+        if (i === n) dot.classList.add('active');
+      }
+      // Update connectors
+      for (let i = 1; i <= 2; i++) {
+        const conn = document.getElementById('conn-' + i);
+        conn.classList.toggle('done', i < n);
+      }
+
+      currentStep = n;
+      // Scroll card into view smoothly
+      document.querySelector('.booking-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ──────────────────────────────────────
+       Validation helpers
+       ────────────────────────────────────── */
+    function showFieldError(fieldKey, msg) {
+      const el = document.getElementById('err-' + fieldKey);
+      const input = document.getElementById('field-' + fieldKey);
+      if (el) { el.textContent = msg || el.textContent; el.classList.add('visible'); }
+      if (input) input.classList.add('error');
+    }
+
+    function hideFieldError(fieldKey) {
+      const el = document.getElementById('err-' + fieldKey);
+      const input = document.getElementById('field-' + fieldKey);
+      if (el) el.classList.remove('visible');
+      if (input) input.classList.remove('error');
+    }
+
+    /* ──────────────────────────────────────
+       Step 1 → Step 2
+       ────────────────────────────────────── */
+    function goToStep2() {
+      let valid = true;
+
+      const name  = document.getElementById('field-name').value.trim();
+      const phone = document.getElementById('field-phone').value.trim();
+      const svc   = document.getElementById('field-service').value;
+      const date  = document.getElementById('field-date').value;
+      const time  = document.getElementById('field-time').value;
+
+      // Name
+      if (!name) { showFieldError('name'); valid = false; }
+      else hideFieldError('name');
+
+      // Phone
+      if (!/^\d{10}$/.test(phone)) { showFieldError('phone'); valid = false; }
+      else hideFieldError('phone');
+
+      // Service
+      if (!svc) { showFieldError('service'); valid = false; }
+      else hideFieldError('service');
+
+      // Date
+      if (!date) { showFieldError('date', 'Please choose a preferred date.'); valid = false; }
+      else {
+        const day = new Date(date + 'T00:00:00').getDay();
+        if (day === 0) { showFieldError('date', 'We are closed on Sundays. Please choose Mon–Sat.'); valid = false; }
+        else hideFieldError('date');
+      }
+
+      // Time
+      if (!time) { showFieldError('time'); valid = false; }
+      else hideFieldError('time');
+
+      if (!valid) {
+        // Scroll to first error
+        const firstErr = document.querySelector('.field-error.visible');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Populate summaries
+      const formattedDate = formatDate(date);
+      ['2', '3'].forEach(n => {
+        document.getElementById('s' + n + '-name').textContent    = name;
+        document.getElementById('s' + n + '-service').textContent = svc;
+        document.getElementById('s' + n + '-date').textContent    = formattedDate;
+        document.getElementById('s' + n + '-time').textContent    = time;
+      });
+
+      goToStep(2);
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    /* ──────────────────────────────────────
+       Step 2 → Step 3
+       ────────────────────────────────────── */
+    function goToStep3() {
+      // Reset step-3 state
+      uploadedImageUrl = '';
+      document.getElementById('wa-send-btn').disabled = true;
+      document.getElementById('upload-status').className = 'upload-status';
+      document.getElementById('upload-status').innerHTML = '';
+      hideFieldError('txn');
+      hideFieldError('screenshot');
+      goToStep(3);
+    }
+
+    /* ──────────────────────────────────────
+       Copy UPI ID
+       ────────────────────────────────────── */
+    function copyUpi() {
+      const upiId = document.getElementById('upi-id-text').textContent;
+      navigator.clipboard.writeText(upiId).then(() => {
+        const btn = document.getElementById('copy-upi-btn');
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy ID';
+          btn.classList.remove('copied');
+        }, 2200);
+      }).catch(() => {
+        // Fallback for browsers without clipboard API
+        const el = document.createElement('textarea');
+        el.value = upiId;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        const btn = document.getElementById('copy-upi-btn');
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy ID'; btn.classList.remove('copied'); }, 2200);
+      });
+    }
+
+    /* ──────────────────────────────────────
+       File Upload Handler
+       ────────────────────────────────────── */
+    function handleFileSelect(input) {
+      const zone = document.getElementById('upload-zone');
+      const nameDisplay = document.getElementById('file-name-display');
+      const statusEl = document.getElementById('upload-status');
+
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        if (!validTypes.includes(file.type)) {
+          showFieldError('screenshot', 'Only JPG, PNG or WebP images are accepted.');
+          zone.classList.remove('has-file');
+          uploadedImageUrl = '';
+          checkEnableWhatsApp();
+          return;
+        }
+
+        hideFieldError('screenshot');
+        zone.classList.add('has-file');
+        nameDisplay.textContent = '📎 ' + file.name;
+
+        // Reset state
+        uploadedImageUrl = '';
+        document.getElementById('wa-send-btn').disabled = true;
+        statusEl.className = 'upload-status';
+        statusEl.innerHTML = '';
+
+        // Upload to ImgBB
+        uploadToImgBB(file);
+      }
+    }
+
+    async function uploadToImgBB(file) {
+      const statusEl = document.getElementById('upload-status');
+
+      // Loading state
+      statusEl.className = 'upload-status loading';
+      statusEl.innerHTML = '<div class="spinner"></div> Uploading screenshot…';
+
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          uploadedImageUrl = data.data.url;
+          statusEl.className = 'upload-status success';
+          statusEl.innerHTML = '✅ Screenshot uploaded! You can now send your booking.';
+          checkEnableWhatsApp();
+        } else {
+          throw new Error(data.error?.message || 'Upload failed');
+        }
+      } catch (err) {
+        statusEl.className = 'upload-status error-msg';
+        statusEl.innerHTML = '❌ Upload failed: ' + err.message + '. Please try again or use a different image.';
+        uploadedImageUrl = '';
+        checkEnableWhatsApp();
+      }
+    }
+
+    /* ──────────────────────────────────────
+       Enable WhatsApp button when ready
+       ────────────────────────────────────── */
+    document.getElementById('field-txn').addEventListener('input', checkEnableWhatsApp);
+
+    function checkEnableWhatsApp() {
+      const txn = document.getElementById('field-txn').value.trim();
+      const btn = document.getElementById('wa-send-btn');
+      btn.disabled = !(txn.length > 0 && uploadedImageUrl);
+    }
+
+    /* ──────────────────────────────────────
+       Send on WhatsApp
+       ────────────────────────────────────── */
+    function sendOnWhatsApp() {
+      const name    = document.getElementById('field-name').value.trim();
+      const phone   = document.getElementById('field-phone').value.trim();
+      const service = document.getElementById('field-service').value;
+      const date    = document.getElementById('field-date').value;
+      const time    = document.getElementById('field-time').value;
+      const notes   = document.getElementById('field-notes').value.trim() || 'None';
+      const txn     = document.getElementById('field-txn').value.trim();
+
+      // Validate txn one more time
+      if (!txn) {
+        showFieldError('txn', 'Please enter your UPI transaction ID.');
+        return;
+      }
+      hideFieldError('txn');
+
+      if (!uploadedImageUrl) {
+        document.getElementById('upload-status').className = 'upload-status error-msg';
+        document.getElementById('upload-status').innerHTML = '❌ Please wait for the screenshot to finish uploading.';
+        return;
+      }
+
+      const formattedDate = formatDate(date);
+
+      const message =
+`🌸 New Booking Request — Hetal's Beautology Clinic
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+💆 Service: ${service}
+📅 Date: ${formattedDate}
+🕐 Time: ${time}
+📝 Notes: ${notes}
+
+💳 UPI Transaction ID: ${txn}
+🖼️ Payment Screenshot: ${uploadedImageUrl}
+
+Please confirm my appointment. Thank you!`;
+
+      const encodedMsg = encodeURIComponent(message);
+      window.open('https://wa.me/918160372284?text=' + encodedMsg, '_blank');
+    }
+
+    /* ──────────────────────────────────────
+       Hamburger menu
+       ────────────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    /* ──────────────────────────────────────
+       Fade-in Observer
+       ────────────────────────────────────── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* ──────────────────────────────────────
+       Drag-and-drop for file zone
+       ────────────────────────────────────── */
+    const uploadZone = document.getElementById('upload-zone');
+    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+    uploadZone.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadZone.classList.remove('dragover');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        const input = document.getElementById('field-screenshot');
+        // Transfer files to input
+        const dt = new DataTransfer();
+        dt.items.add(files[0]);
+        input.files = dt.files;
+        handleFileSelect(input);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
