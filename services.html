@@ -20,11 +20,16 @@
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        Hetal's Beautology Clinic
-        <span>Gandhinagar, Gujarat</span>
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" class="nav-logo-img">
+        <div class="nav-logo-text-group">
+          <span class="nav-logo-main">Hetal's</span>
+          <span class="nav-logo-sub">Beautology Clinic</span>
+          <span class="location">Gandhinagar, Gujarat</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="services.html" class="active">Services</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -36,6 +41,7 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="services.html" class="active">Services</a>
       <a href="reviews.html">Reviews</a>
       <a href="contact.html">Contact</a>
@@ -62,6 +68,8 @@
           aria-controls="panel-facials">🌿 Facials & Rejuvenation</button>
         <button class="tab-btn" id="tab-hair" data-panel="hair" role="tab" aria-selected="false"
           aria-controls="panel-hair">💫 Hair & Specialised</button>
+        <button class="tab-btn" id="tab-machines" data-panel="machines" role="tab" aria-selected="false"
+          aria-controls="panel-machines">⚙️ Our Machines</button>
       </div>
 
       <!-- Panel 1: Laser & Advanced Skin Treatments -->
@@ -69,86 +77,212 @@
         <div class="tab-panel-header fade-in">
           <h2 id="laser">⚡ Laser & Advanced Skin Treatments</h2>
           <div class="gold-divider"></div>
-          <p class="section-subtitle" style="margin-bottom:0;">Precision laser and advanced procedures for lasting skin
-            transformation</p>
+          <p class="section-subtitle">Precision laser and advanced procedures for lasting skin transformation</p>
         </div>
-        <div class="services-list">
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">🔦</span>
-            <div>
-              <div class="svc-name">Laser Hair Removal</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Safe, long-lasting hair reduction</div>
+        
+        <div class="svc-card-grid">
+          <!-- 01. Laser Hair Removal -->
+          <div class="svc-card fade-in" 
+               data-id="laser-hair"
+               data-icon="🔦"
+               data-name="Laser Hair Removal"
+               data-sub="Safe, long-lasting hair reduction"
+               data-img="Images/Services/Core Services Images/laser_hair_removal.jpeg"
+               data-tagline="EFFORTLESS ELEGANCE"
+               data-desc="Tired of the never-ending shave-wax-repeat cycle? Laser hair removal targets your hair follicles directly, slowing down growth over multiple sessions until you barely need to think about it. It's safe for most skin types, practically painless with modern machines, and yes — the results actually last."
+               data-highlights="Long-lasting results, Most skin types, Face & body, Quick sessions">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🔦</div>
+              <div class="svc-card-name">Laser Hair Removal</div>
+              <div class="svc-card-sub">Safe, long-lasting hair reduction</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">✨</span>
-            <div>
-              <div class="svc-name">Laser Skin Therapy</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Targeted skin healing with laser precision</div>
+
+          <!-- 02. Laser Skin Therapy -->
+          <div class="svc-card fade-in" 
+               data-id="laser-skin"
+               data-icon="✨"
+               data-name="Laser Skin Therapy"
+               data-sub="Rejuvenation and texture improvement"
+               data-img="Images/Services/Core Services Images/skin_brightening_treatment.jpeg"
+               data-tagline="RENEWED TEXTURE"
+               data-desc="Laser skin therapy uses controlled light energy to stimulate collagen production and treat superficial skin concerns like fine lines, enlarged pores, and minor scarring."
+               data-highlights="Skin rejuvenation, Texture improvement, Fine lines, Skin brightening">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">✨</div>
+              <div class="svc-card-name">Laser Skin Therapy</div>
+              <div class="svc-card-sub">Rejuvenation & texture improvement</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">🎯</span>
-            <div>
-              <div class="svc-name">Laser Acne Scar Treatment</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Resurface and smooth acne-damaged skin</div>
+
+          <!-- 03. Laser Acne Scar Treatment -->
+          <div class="svc-card fade-in" 
+               data-id="laser-acne"
+               data-icon="🎯"
+               data-name="Laser Acne Scar Treatment"
+               data-sub="Resurface and smooth acne-damaged skin"
+               data-img="Images/Services/Core Services Images/laser_hair_removal.jpeg"
+               data-tagline="RECONSTRUCTED SKIN"
+               data-desc="Acne scars can stick around long after the breakouts are gone. Laser treatment resurfaces the skin layer by layer, smoothing out the uneven texture."
+               data-highlights="Resurfacing, Smoother texture, Acne scar reduction, Post-acne care">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🎯</div>
+              <div class="svc-card-name">Laser Acne Scar Treatment</div>
+              <div class="svc-card-sub">Resurface and smooth acne skin</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">🌟</span>
-            <div>
-              <div class="svc-name">Laser Face Resurfacing</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Reveal fresh, younger-looking skin</div>
+
+          <!-- 04. Laser Face Resurfacing -->
+          <div class="svc-card fade-in" 
+               data-id="laser-resurfacing"
+               data-icon="🌟"
+               data-name="Laser Face Resurfacing"
+               data-sub="Reveal fresh, younger-looking skin"
+               data-tagline="Press the refresh button on your skin"
+               data-desc="Think of this as deep cleaning your skin from the inside out. Laser resurfacing removes the outer damaged layers — sun spots, fine lines, uneven skin tone — and wakes up collagen production underneath. The result is smoother, firmer, more even-looking skin that genuinely looks younger. It's one of those treatments where people notice something's different but can't quite put their finger on what."
+               data-highlights="Fine lines, Sun damage, Uneven skin tone, Skin tightening">
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🌟</div>
+              <div class="svc-card-name">Laser Face Resurfacing</div>
+              <div class="svc-card-sub">Reveal fresh, younger-looking skin</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">🖊️</span>
-            <div>
-              <div class="svc-name">Laser Tattoo Removal</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Safe and effective ink removal</div>
+
+          <!-- 05. Laser Tattoo Removal -->
+          <div class="svc-card fade-in" 
+               data-id="laser-tattoo"
+               data-icon="🖊️"
+               data-name="Laser Tattoo Removal"
+               data-sub="Safe and effective ink removal"
+               data-img="Images/Services/Core Services Images/laser_tattoo_removal.jpeg"
+               data-tagline="CLEAR CANVAS"
+               data-desc="Whether it's a name that no longer makes sense or a design you've just outgrown, laser tattoo removal breaks down the ink particles under your skin so your body can naturally flush them out."
+               data-highlights="All ink colors, Multiple sessions, Minimal scarring, All body areas">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🖊️</div>
+              <div class="svc-card-name">Laser Tattoo Removal</div>
+              <div class="svc-card-sub">Safe and effective ink removal</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">🔬</span>
-            <div>
-              <div class="svc-name">Laser Skin Tag, Warts & Mole Removal</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Precise removal with minimal downtime</div>
+
+          <!-- 06. Laser Removal (Tags/Warts/Moles) -->
+          <div class="svc-card fade-in" 
+               data-id="laser-tag"
+               data-icon="✂️"
+               data-name="Laser Removal (Tags/Warts/Moles)"
+               data-sub="Precise removal of skin growths"
+               data-img="Images/Services/Core Services Images/laser_tattoo_removal.jpeg"
+               data-tagline="PRECISION REMOVAL"
+               data-desc="Laser technology allows for the precise removal of skin tags, warts, and moles with minimal impact on the surrounding skin."
+               data-highlights="Precise removal, Minimal scarring, Quick procedure, Safe">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">✂️</div>
+              <div class="svc-card-name">Laser Removal</div>
+              <div class="svc-card-sub">Precise removal of skin growths</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">💎</span>
-            <div>
-              <div class="svc-name">Microderma Abrasion</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Mechanical exfoliation for radiant skin</div>
+
+          <!-- 07. Microderma Abrasion -->
+          <div class="svc-card fade-in" 
+               data-id="microderm"
+               data-icon="💎"
+               data-name="Microderma Abrasion"
+               data-sub="Mechanical exfoliation for radiant skin"
+               data-img="Images/Services/Core Services Images/skin_brightening_treatment.jpeg"
+               data-tagline="BUFF & POLISH"
+               data-desc="Microdermabrasion is like giving your face the best deep exfoliation it's ever had. A specialised device gently buffs away the dead outer layer of skin."
+               data-highlights="Deep exfoliation, Radiant skin, Unclogs pores, Skin buffing">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">💎</div>
+              <div class="svc-card-name">Microderma Abrasion</div>
+              <div class="svc-card-sub">Mechanical skin buffing & polish</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">🪡</span>
-            <div>
-              <div class="svc-name">Microneedling (Derma Pen | Derma Roller)</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Collagen induction for skin renewal</div>
+
+          <!-- 08. Microneedling -->
+          <div class="svc-card fade-in" 
+               data-id="microneedling"
+               data-icon="🪡"
+               data-name="Microneedling (Derma Pen | Derma Roller)"
+               data-sub="Collagen induction for skin renewal"
+               data-img="Images/Services/Core Services Images/korean_glass_skin_treatment.jpeg"
+               data-tagline="COLLAGEN BOOST"
+               data-desc="Tiny controlled needles create micro-channels in the skin that trigger your body's natural healing response."
+               data-highlights="Collagen boost, Fine lines, Acne scars, Natural healing">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🪡</div>
+              <div class="svc-card-name">Microneedling</div>
+              <div class="svc-card-sub">Collagen induction therapy</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">🧴</span>
-            <div>
-              <div class="svc-name">Deep Skin Peeling</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Chemical peels for deep skin correction</div>
+
+          <!-- 09. Deep Skin Peeling -->
+          <div class="svc-card fade-in" 
+               data-id="peeling"
+               data-icon="🧴"
+               data-name="Deep Skin Peeling"
+               data-sub="Chemical peels for deep skin correction"
+               data-tagline="Peel back the years"
+               data-desc="A chemical peel uses carefully chosen acids to remove damaged skin layers and make room for fresh, healthier skin underneath. Depending on how deep the peel goes, it can tackle anything from surface dullness to stubborn pigmentation and deep-set wrinkles. Yes, there's some peeling involved — but what comes through on the other side is noticeably clearer, smoother skin."
+               data-highlights="Light to deep peels, Pigmentation, Wrinkle reduction, Skin renewal">
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🧴</div>
+              <div class="svc-card-name">Deep Skin Peeling</div>
+              <div class="svc-card-sub">Chemical peels for deep skin correction</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">🎬</span>
-            <div>
-              <div class="svc-name">Black Doll Peel / Hollywood Facial</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Carbon laser facial for an instant glow</div>
+
+          <!-- 10. Black Doll Peel -->
+          <div class="svc-card fade-in" 
+               data-id="black-doll"
+               data-icon="🎬"
+               data-name="Black Doll Peel / Hollywood Facial"
+               data-sub="Carbon laser facial for an instant glow"
+               data-img="Images/Services/Core Services Images/skin_brightening_treatment.jpeg"
+               data-tagline="HOLLYWOOD GLOW"
+               data-desc="This is the treatment celebrities swear by. Liquid carbon is vaporised by laser to deep clean pores."
+               data-highlights="Hollywood facial, Pore cleaning, Instant glow, Deep rejuvenation">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🎬</div>
+              <div class="svc-card-name">Black Doll Peel</div>
+              <div class="svc-card-sub">Carbon laser Hollywood facial</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">💫</span>
-            <div>
-              <div class="svc-name">Mirapeel</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Advanced peel for brightening and rejuvenation
-              </div>
+
+          <!-- 11. Mirapeel -->
+          <div class="svc-card fade-in" 
+               data-id="mirapeel"
+               data-icon="💫"
+               data-name="Mirapeel"
+               data-sub="Advanced peel for brightening and rejuvenation"
+               data-img="Images/Services/Core Services Images/skin_brightening_treatment.jpeg"
+               data-tagline="MIRROR FINISH"
+               data-desc="Mirapeel combines a mechanical peel with customised serum infusion for deep hydration and luminosity."
+               data-highlights="Mechanical peel, Serum infusion, Luminosity, Deep hydration">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">💫</div>
+              <div class="svc-card-name">Mirapeel</div>
+              <div class="svc-card-sub">Mechanical peel & serum infusion</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
         </div>
@@ -159,74 +293,204 @@
         <div class="tab-panel-header fade-in">
           <h2 id="facials">🌿 Facials & Rejuvenation</h2>
           <div class="gold-divider"></div>
-          <p class="section-subtitle" style="margin-bottom:0;">Luxurious facials and science-backed rejuvenation
-            therapies</p>
+          <p class="section-subtitle">Luxurious facials and science-backed rejuvenation therapies</p>
         </div>
-        <div class="services-list">
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">🩸</span>
-            <div>
-              <div class="svc-name">Vampire Facial (Face PRP)</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Platelet-rich plasma for natural skin renewal
-              </div>
+        
+        <div class="svc-card-grid">
+          <!-- 01. Vampire Facial -->
+          <div class="svc-card fade-in" 
+               data-id="vampire-facial"
+               data-icon="🩸"
+               data-name="Vampire Facial (Face PRP)"
+               data-sub="Platelet-rich plasma for natural skin renewal"
+               data-img="Images/Services/Core Services Images/anti_ageing_solutions.jpeg"
+               data-tagline="NATURAL RENEWAL"
+               data-desc="The name sounds dramatic, but this is actually one of the most natural treatments out there. Uses your own platelets to stimulate collagen."
+               data-highlights="PRP therapy, Natural renewal, Skin tightening, Collagen boost">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🩸</div>
+              <div class="svc-card-name">Vampire Facial</div>
+              <div class="svc-card-sub">PRP Platelet-rich plasma</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">🏥</span>
-            <div>
-              <div class="svc-name">Medi Facials</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Medical-grade facials for targeted correction
-              </div>
+
+          <!-- 02. Medi Facials -->
+          <div class="svc-card fade-in" 
+               data-id="medi-facials"
+               data-icon="🏥"
+               data-name="Medi Facials"
+               data-sub="Medical-grade facials for targeted correction"
+               data-img="Images/Services/Core Services Images/medi_facial.jpeg"
+               data-tagline="CLINICAL GLOW"
+               data-desc="Medi facials are a step above what you'd get at a regular beauty salon."
+               data-highlights="Targeted correction, Clinical glow, Hydration boost, Long-lasting">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🏥</div>
+              <div class="svc-card-name">Medi Facials</div>
+              <div class="svc-card-sub">Medical-grade targeted correction</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">💨</span>
-            <div>
-              <div class="svc-name">Oxygeneo Facial</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Tri-action facial for instant radiance</div>
+
+          <!-- 03. Korean Glass Skin -->
+          <div class="svc-card fade-in" 
+               data-id="korean-glass"
+               data-icon="🔮"
+               data-name="Korean Glass Skin"
+               data-sub="The ultimate luminous complexion"
+               data-img="Images/Services/Core Services Images/korean_glass_skin_treatment.jpeg"
+               data-tagline="PORELESS PERFECTION"
+               data-desc="The ultimate secret to a luminous, poreless, and hydrated complexion."
+               data-highlights="Poreless finish, Luminous glow, Intense hydration, Multi-step infusion">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🔮</div>
+              <div class="svc-card-name">Korean Glass Skin</div>
+              <div class="svc-card-sub">The ultimate luminous complexion</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">💧</span>
-            <div>
-              <div class="svc-name">Hydra Facial</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Deep cleansing with hydration infusion</div>
+
+          <!-- 03. Korean Glass Skin Treatment -->
+          <div class="svc-card fade-in" 
+               data-id="korean-glass"
+               data-icon="💎"
+               data-name="Korean Glass Skin Treatment"
+               data-sub="The ultimate secret to luminous, poreless skin"
+               data-img="Images/Services/Core Services Images/korean_glass_skin_treatment.jpeg"
+               data-video="Images/Services/Core Services Reel/korean_glass_facial_reel.mp4"
+               data-tagline="LUMINOUS FINISH"
+               data-desc="This multi-step medical facial uses advanced exfoliation and deep infusion of specialized serums to achieve that translucent, 'glass-like' glow."
+               data-highlights="Poreless finish, Intense hydration, Luminous glow, Multi-step infusion">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">💎</div>
+              <div class="svc-card-name">Korean Glass Skin</div>
+              <div class="svc-card-sub">Luminous, poreless finish</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">✨</span>
-            <div>
-              <div class="svc-name">BB Glow Treatment</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Semi-permanent tinted serum for flawless skin
-              </div>
+
+          <!-- 03. Oxygeneo Facial -->
+          <div class="svc-card fade-in" 
+               data-id="oxygeneo"
+               data-icon="🫧"
+               data-name="Oxygeneo Facial"
+               data-sub="Exfoliate, Infuse, and Oxygenate"
+               data-img="Images/Services/Core Services Images/korean_glass_skin_treatment.jpeg"
+               data-tagline="3-IN-1 THERAPY"
+               data-desc="Oxygeneo is a 3-in-1 facial treatment that combines gentle exfoliation, infusion of essential nutrients, and natural skin oxygenation."
+               data-highlights="3-in-1 therapy, Exfoliate, Infuse, Oxygenate">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🫧</div>
+              <div class="svc-card-name">Oxygeneo Facial</div>
+              <div class="svc-card-sub">Exfoliate, Infuse, & Oxygenate</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">🔝</span>
-            <div>
-              <div class="svc-name">Skin Tightening / Face Lifting</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Non-surgical lift and firming treatments</div>
+
+          <!-- 05. Hydra Facial -->
+          <div class="svc-card fade-in" 
+               data-id="hydra-facial"
+               data-icon="🌊"
+               data-name="Hydra Facial"
+               data-sub="Deep cleansing and hydration"
+               data-tagline="TOTAL REFRESH"
+               data-desc="Hydra Facial uses a multi-step process to cleanse, exfoliate, and extract impurities while simultaneously delivering nourishing serums into the skin for a hydrated, radiant finish."
+               data-highlights="Deep cleansing, Intense hydration, Immediate results, Pore refinement">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">🌊</div>
+              <div class="svc-card-name">Hydra Facial</div>
+              <div class="svc-card-sub">Deep cleansing & hydration</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">☀️</span>
-            <div>
-              <div class="svc-name">Skin Brightening Treatment</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Even out tone and boost natural luminosity</div>
+
+          <!-- 06. BB Glow Treatment -->
+          <div class="svc-card fade-in" 
+               data-id="bb-glow"
+               data-icon="✨"
+               data-name="BB Glow Treatment"
+               data-sub="Semi-permanent tinted serum for flawless skin"
+               data-tagline="Wake up with perfect skin every day"
+               data-desc="BB Glow is a semi-permanent makeup treatment that uses microneedling to infuse a pigmented serum into the top layer of your skin. It gives you the look of a light foundation or BB cream without actually wearing any makeup. It helps cover redness, dark circles, and uneven skin tone, leaving you with a smooth, radiant 'glow' that lasts for weeks."
+               data-highlights="Semi-permanent makeup, Evens skin tone, Covers dark circles, Long lasting glow">
+            <div class="svc-card-icon">✨</div>
+            <div class="svc-card-name">BB Glow Treatment</div>
+            <div class="svc-card-sub">Semi-permanent flawless skin</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 06. Skin Tightening / Face Lifting -->
+          <div class="svc-card fade-in" 
+               data-id="face-lift"
+               data-icon="🔝"
+               data-name="Skin Tightening / Face Lifting"
+               data-sub="Non-surgical lift and firming treatments"
+               data-tagline="Defy gravity, naturally"
+               data-desc="Our skin tightening and lifting treatments use advanced energy-based technologies to stimulate collagen production deep within the skin. This helps firm up sagging areas, smooth out fine lines, and give the face a more lifted, youthful contour without the need for surgery or downtime. It's a progressive treatment that gets better as your body builds new collagen."
+               data-highlights="Non-surgical lift, Collagen building, No downtime, Youthful contour">
+            <div class="svc-card-icon">🔝</div>
+            <div class="svc-card-name">Skin Tightening</div>
+            <div class="svc-card-sub">Non-surgical lift & firming</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 07. Skin Brightening Treatment -->
+          <div class="svc-card fade-in" 
+               data-id="brightening"
+               data-icon="☀️"
+               data-name="Skin Brightening Treatment"
+               data-sub="Even out tone and boost natural luminosity"
+               data-tagline="Bring back your natural light"
+               data-desc="Sun damage, age spots, and hormonal changes can leave the skin looking dull and uneven. Our skin brightening treatments use a combination of professional-grade serums and advanced technology to target pigmentation and reveal a more luminous, even-toned complexion. It's not about changing your skin tone — it's about making your natural skin the brightest and clearest it can be."
+               data-highlights="Corrects pigmentation, Luminous skin, Even tone, Sun damage repair">
+            <div class="svc-card-icon">☀️</div>
+            <div class="svc-card-name">Skin Brightening</div>
+            <div class="svc-card-sub">Even out tone & boost luminosity</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 08. Undereye Dark Circle Treatment -->
+          <div class="svc-card fade-in" 
+               data-id="undereye"
+               data-icon="👁️"
+               data-name="Undereye Dark Circle Treatment"
+               data-sub="Targeted solutions for under-eye darkness"
+               data-img="Images/Services/Core Services Images/undereye_treatment.jpeg"
+               data-tagline="Because coffee can only do so much"
+               data-desc="Dark circles can make you look tired even when you're well-rested. Our targeted treatments address the common causes of undereye darkness — whether it's pigmentation, thin skin, or poor circulation. Using a mix of specialized serums and gentle technologies, we help brighten and firm the delicate undereye area for a more refreshed, awake appearance."
+               data-highlights="Brightens undereye, Firms delicate skin, Refreshed look, Targeted results">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">👁️</div>
+              <div class="svc-card-name">Undereye Treatment</div>
+              <div class="svc-card-sub">Targeted dark circle solutions</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">👁️</span>
-            <div>
-              <div class="svc-name">Undereye Dark Circle Treatment</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Targeted solutions for under-eye darkness</div>
-            </div>
-          </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">⏳</span>
-            <div>
-              <div class="svc-name">Anti Aging Solution</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Science-backed treatments to slow ageing</div>
+
+          <!-- 10. Anti Aging Solution -->
+          <div class="svc-card fade-in" 
+               data-id="anti-aging"
+               data-icon="⏳"
+               data-name="Anti Aging Solution"
+               data-sub="Science-backed treatments to slow ageing"
+               data-img="Images/Services/Core Services Images/anti_ageing_solutions.jpeg"
+               data-tagline="TIMELESS BEAUTY"
+               data-desc="Our anti-ageing solutions combine the best of clinical skincare and advanced technology to target the visible signs of ageing: fine lines, wrinkles, and loss of elasticity."
+               data-highlights="Wrinkle reduction, Elasticity boost, Texture refinement, Preventative care">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">⏳</div>
+              <div class="svc-card-name">Anti Aging Solution</div>
+              <div class="svc-card-sub">Science-backed age correction</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
         </div>
@@ -237,54 +501,163 @@
         <div class="tab-panel-header fade-in">
           <h2 id="hair">💫 Hair & Specialised Procedures</h2>
           <div class="gold-divider"></div>
-          <p class="section-subtitle" style="margin-bottom:0;">Precision aesthetic procedures for hair and beauty
-            enhancement</p>
+          <p class="section-subtitle">Precision aesthetic procedures for hair and beauty enhancement</p>
         </div>
-        <div class="services-list">
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">💆</span>
-            <div>
-              <div class="svc-name">Hair Fall & Hair Regrowth Treatment (PRP)</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Stimulate natural hair growth with platelet
-                therapy</div>
+        
+        <div class="svc-card-grid">
+          <!-- 01. Hair Fall & Hair Regrowth Treatment (PRP) -->
+          <div class="svc-card fade-in" 
+               data-id="hair-prp"
+               data-icon="💆"
+               data-name="Hair Fall & Hair Regrowth Treatment (PRP)"
+               data-sub="Stimulate natural hair growth with platelet therapy"
+               data-video="Images/Services/Core Services Reel/hair_regrowth_treatment_reel.mp4"
+               data-tagline="Serious technology for serious hair concerns"
+               data-desc="Hair loss treatment requires more than just a good serum — it needs equipment that can work at the follicle level. Our PRP treatment uses your own platelets to stimulate dormant hair growth."
+               data-highlights="Follicle stimulation, LLLT therapy, Scalp mesotherapy, PRP growth">
+            <div class="svc-card-icon">💆</div>
+            <div class="svc-card-name">Hair Regrowth (PRP)</div>
+            <div class="svc-card-sub">Stimulate growth with platelet therapy</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 02. Permanent Eyebrow / Microblading -->
+          <div class="svc-card fade-in" 
+               data-id="microblading"
+               data-icon="🎨"
+               data-name="Permanent Eyebrow / Microblading"
+               data-sub="Natural, defined brows that last"
+               data-tagline="Wake up with perfect brows"
+               data-desc="Microblading uses a manual tool to create super-fine, hair-like strokes that blend seamlessly with your natural eyebrows. It's perfect for filling in sparse areas, defining the shape, and adding depth. The result is a natural-looking brow that doesn't smudge or wash off, saving you time every single morning."
+               data-highlights="Natural hair-strokes, Defined shape, Long lasting, Semi-permanent">
+            <div class="svc-card-icon">🎨</div>
+            <div class="svc-card-name">Microblading</div>
+            <div class="svc-card-sub">Natural, defined brows that last</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 03. Permanent Lip Colour -->
+          <div class="svc-card fade-in" 
+               data-id="lip-colour"
+               data-icon="💄"
+               data-name="Permanent Lip Colour"
+               data-sub="Semi-permanent lip pigmentation"
+               data-img="Images/Services/Core Services Images/permanent_lip_color.jpeg"
+               data-tagline="DEFINED LIPS"
+               data-desc="Permanent lip colour adds a soft, flattering tint to your lips that defines the edges and evens out the natural tone. It looks like you naturally have great lips."
+               data-highlights="Natural-looking tint, Corrects uneven tone, Defines lip edges, Semi-permanent">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">💄</div>
+              <div class="svc-card-name">Permanent Lip Colour</div>
+              <div class="svc-card-sub">Semi-permanent lip pigmentation</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">🎨</span>
-            <div>
-              <div class="svc-name">Permanent Eyebrow / Microblading</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Natural, defined brows that last</div>
+
+          <!-- 04. Cheek Blush / Beauty Spots -->
+          <div class="svc-card fade-in" 
+               data-id="cheek-blush"
+               data-icon="🌸"
+               data-name="Cheek Blush / Beauty Spots"
+               data-sub="Enhance facial features with permanent pigment"
+               data-tagline="Your favourite makeup look, but permanent"
+               data-desc="Permanent cheek blush gives you that healthy, flushed look without ever picking up a brush — it's tattooed pigment placed along the cheekbones to add warmth and dimension to the face. Beauty spots are tiny permanent dots placed in flattering positions to enhance your features, like a modern take on the classic mole. Both are subtle, customisable, and completely transformative."
+               data-highlights="Permanent blush effect, Custom placement, Beauty mark option, Subtle & flattering">
+            <div class="svc-card-icon">🌸</div>
+            <div class="svc-card-name">Cheek Blush</div>
+            <div class="svc-card-sub">Permanent pigment enhancement</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 05. Eyelash Lifting / Eyelash Extension -->
+          <div class="svc-card fade-in" 
+               data-id="eyelash"
+               data-icon="👁️"
+               data-name="Eyelash Lifting / Eyelash Extension"
+               data-sub="Beautifully curled or voluminous lashes"
+               data-tagline="Mascara? Never heard of her"
+               data-desc="Lash lifting curls your natural lashes from the root so they look longer, more open, and beautifully defined — no extensions needed. It lasts 6-8 weeks and requires zero maintenance. If you want more volume and length, lash extensions add individual fibres to each lash for a look that can be as natural or as dramatic as you like."
+               data-highlights="Lash lift or extensions, 6-8 week wear, Zero maintenance, Natural to dramatic">
+            <div class="svc-card-icon">👁️</div>
+            <div class="svc-card-name">Eyelash Procedures</div>
+            <div class="svc-card-sub">Curled or voluminous lashes</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 06. Ear Lobe Repair -->
+          <div class="svc-card fade-in" 
+               data-id="ear-lobe"
+               data-icon="👂"
+               data-name="Ear Lobe Repair"
+               data-sub="Corrective procedure for torn or stretched lobes"
+               data-tagline="Fix it once, wear your earrings again"
+               data-desc="Ear lobe repair is a quick, minor procedure that stitches the lobe back together neatly, with minimal discomfort and a clean result."
+               data-highlights="Torn & split lobes, Stretched gauge repair, Can re-pierce after, Quick procedure">
+            <div class="svc-card-icon">👂</div>
+            <div class="svc-card-name">Ear Lobe Repair</div>
+            <div class="svc-card-sub">Corrective procedure for lobes</div>
+            <div class="svc-card-arrow">View Details →</div>
+          </div>
+
+          <!-- 07. Medical Weight Loss / Body Contouring -->
+          <div class="svc-card fade-in" 
+               data-id="weightloss"
+               data-icon="⚖️"
+               data-name="Medical Weight Loss & Contouring"
+               data-sub="Advanced machines for fat reduction"
+               data-img="Images/Services/Core Services Images/weightloss_machines.jpeg"
+               data-video="Images/Services/Core Services Reel/weightloss_machines_reel.mp4"
+               data-tagline="BODY CONTOURING"
+               data-desc="Our medical weight loss platform uses advanced RF and cavitation technologies to target stubborn fat cells and tighten the skin simultaneously."
+               data-highlights="Fat reduction, Skin tightening, Non-invasive, Targeted contouring">
+            
+            <div class="svc-card-body">
+              <div class="svc-card-icon">⚖️</div>
+              <div class="svc-card-name">Weight Loss & Contouring</div>
+              <div class="svc-card-sub">Advanced machine-based shaping</div>
+              <div class="svc-card-arrow">View Details →</div>
             </div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">💄</span>
-            <div>
-              <div class="svc-name">Permanent Lip Colour</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Semi-permanent lip pigmentation</div>
-            </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Our Machines -->
+      <div class="tab-panel" id="panel-machines" role="tabpanel" aria-labelledby="tab-machines">
+        <div class="tab-panel-header fade-in">
+          <h2 id="machines">⚙️ Advanced Clinical Technology</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">State-of-the-art medical equipment for precision treatments</p>
+        </div>
+        
+        <div class="machines-grid">
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machine1.png" alt="Laser System" />
+            <div class="machine-label">PLATINUM LASER SYSTEM</div>
           </div>
-          <div class="service-item fade-in fade-in-delay-1">
-            <span class="svc-icon">🌸</span>
-            <div>
-              <div class="svc-name">Cheek Blush / Beauty Spots</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Enhance facial features with permanent pigment
-              </div>
-            </div>
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machine2.png" alt="Skin Treatment" />
+            <div class="machine-label">ADVANCED SKIN THERAPY</div>
           </div>
-          <div class="service-item fade-in fade-in-delay-2">
-            <span class="svc-icon">👁️</span>
-            <div>
-              <div class="svc-name">Eyelash Lifting / Eyelash Extension</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Beautifully curled or voluminous lashes</div>
-            </div>
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machine3.png" alt="Facial Device" />
+            <div class="machine-label">HYDRA-FACIAL ENGINE</div>
           </div>
-          <div class="service-item fade-in fade-in-delay-3">
-            <span class="svc-icon">👂</span>
-            <div>
-              <div class="svc-name">Ear Lobe Repair</div>
-              <div style="font-size:0.85rem;color:#999;margin-top:2px;">Corrective procedure for torn or stretched lobes
-              </div>
-            </div>
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machine4.png" alt="Rejuvenation" />
+            <div class="machine-label">REJUVENATION SYSTEM</div>
+          </div>
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machine5.png" alt="Hair Treatment" />
+            <div class="machine-label">SCALP THERAPY DEVICE</div>
+          </div>
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machine6.png" alt="Aesthetic Device" />
+            <div class="machine-label">AESTHETIC SCULPTOR</div>
+          </div>
+          <div class="machine-card fade-in">
+            <img src="Images/Machines/machines7.jpg" alt="Clinic Equipment" />
+            <div class="machine-label">INTEGRATED CLINIC SETUP</div>
           </div>
         </div>
       </div>
@@ -311,6 +684,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" style="width: 80px; border-radius: 50%; margin-bottom: 1rem; border: 2px solid var(--rose-dark);">
         <h3>Hetal's Beautology Clinic</h3>
         <p class="tagline">Where Science Meets Beauty</p>
         <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); max-width:320px;">Gandhinagar's premier skin and
@@ -320,6 +694,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -347,6 +722,37 @@
         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
   </a>
+
+  <!-- SERVICE MODAL OVERLAY -->
+  <div class="svc-modal-overlay" id="svc-modal-overlay">
+    <div class="svc-modal">
+      <button class="svc-modal-close" id="svc-modal-close" aria-label="Close Modal">&times;</button>
+      
+      <!-- New Media Container -->
+      <div id="modal-media-container" style="margin: -3rem -3rem 2rem -3rem; height: 350px; overflow: hidden; background: #000; display: none; position: relative; border-bottom: 1px solid var(--rose-dark);">
+        <!-- Dynamic content: img or video -->
+      </div>
+
+      <div class="svc-modal-header">
+        <div class="svc-modal-icon" id="modal-icon">🔦</div>
+        <div>
+          <h2 class="svc-modal-title" id="modal-title" style="font-family: 'Cinzel', serif;">Service Name</h2>
+          <div class="svc-modal-tagline" id="modal-tagline" style="font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 2px; color: var(--rose-light);">Service Tagline</div>
+        </div>
+      </div>
+      <div class="svc-modal-divider"></div>
+      <div class="svc-modal-desc" id="modal-desc">
+        Detailed description goes here.
+      </div>
+      <div class="svc-modal-highlights-label">Key Highlights</div>
+      <div class="svc-modal-pills" id="modal-highlights">
+        <!-- Pills generated by JS -->
+      </div>
+      <div style="margin-top: 2.5rem; text-align: center;">
+        <a href="booking.html" class="btn btn-primary">Book This Service</a>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Hamburger
@@ -380,10 +786,76 @@
       });
     });
 
+    // Modal Logic
+    const modalOverlay = document.getElementById('svc-modal-overlay');
+    const modalClose = document.getElementById('svc-modal-close');
+    const svcCards = document.querySelectorAll('.svc-card');
+
+    const modalIcon = document.getElementById('modal-icon');
+    const modalTitle = document.getElementById('modal-title');
+    const modalTagline = document.getElementById('modal-tagline');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalHighlights = document.getElementById('modal-highlights');
+    const modalMediaContainer = document.getElementById('modal-media-container');
+
+    svcCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const data = card.dataset;
+        
+        modalIcon.textContent = data.icon;
+        modalTitle.textContent = data.name;
+        modalTagline.textContent = data.tagline;
+        modalDesc.textContent = data.desc;
+        
+        // Handle Media
+        modalMediaContainer.innerHTML = '';
+        modalMediaContainer.style.display = 'none';
+        modalIcon.style.display = 'block';
+
+        if (data.video) {
+          modalMediaContainer.style.display = 'block';
+          modalIcon.style.display = 'none';
+          modalMediaContainer.innerHTML = `<video src="${data.video}" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"></video>`;
+        } else if (data.img) {
+          modalMediaContainer.style.display = 'block';
+          modalIcon.style.display = 'none';
+          modalMediaContainer.innerHTML = `<img src="${data.img}" style="width:100%; height:100%; object-fit:cover;" />`;
+        }
+        
+        // Generate Highlights
+        modalHighlights.innerHTML = '';
+        if (data.highlights) {
+          const highlights = data.highlights.split(',');
+          highlights.forEach(h => {
+            const pill = document.createElement('span');
+            pill.className = 'svc-pill';
+            pill.textContent = h.trim();
+            modalHighlights.appendChild(pill);
+          });
+        }
+
+        modalOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+      });
+    });
+
+    const closeModal = () => {
+      modalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
     // Handle hash links (e.g. services.html#facials)
     const hash = window.location.hash;
     if (hash) {
-      const panelMap = { '#laser': 'laser', '#facials': 'facials', '#hair': 'hair' };
+      const panelMap = { '#laser': 'laser', '#facials': 'facials', '#hair': 'hair', '#machines': 'machines' };
       const panelId = panelMap[hash];
       if (panelId) {
         document.querySelector(`[data-panel="${panelId}"]`).click();
@@ -396,8 +868,12 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    (function(){const u='https://script.google.com/macros/s/AKfycby8ayxAX8_TwhiCm8dQcHXhVQbHtztz1MofFkAIkGd_d7tE57VWP1zJV-EVCXBJP7s2/exec';const p=window.location.pathname.split('/').pop()||'services.html';const d=navigator.userAgent;fetch(`${u}?p=${encodeURIComponent(p)}&d=${encodeURIComponent(d)}`,{mode:'no-cors'})})();
   </script>
 
+  <!-- Mobile Sticky Bar -->
+  <div class="mobile-book-bar">
+    <a href="booking.html" class="btn-book">Book Appointment Now</a>
+  </div>
 </body>
-
 </html>

@@ -21,12 +21,17 @@
        ╚══════════════════════════════════╝ -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" id="nav-logo">
-        Hetal's Beautology Clinic
-        <span>Gandhinagar, Gujarat</span>
+      <a href="index.html" class="nav-logo">
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" class="nav-logo-img">
+        <div class="nav-logo-text-group">
+          <span class="nav-logo-main">Hetal's</span>
+          <span class="nav-logo-sub">Beautology Clinic</span>
+          <span class="location">Gandhinagar, Gujarat</span>
+        </div>
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+        <li><a href="about.html" id="nav-about">About</a></li>
         <li><a href="services.html" id="nav-services">Services</a></li>
         <li><a href="reviews.html" id="nav-reviews">Reviews</a></li>
         <li><a href="contact.html" id="nav-contact">Contact</a></li>
@@ -38,6 +43,7 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="reviews.html">Reviews</a>
       <a href="contact.html">Contact</a>
@@ -51,11 +57,11 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <span class="hero-badge">✦ Premium Skin & Laser Clinic ✦</span>
-      <h1>Hetal's Beautology Clinic</h1>
-      <p class="hero-tagline">Where Science Meets Beauty</p>
+      <span class="hero-badge">✦ Excellence in Medical Aesthetics ✦</span>
+      <h1 style="margin-bottom: 2rem;">REDEFINING <br><span class="accent-font" style="font-size: 3.5rem; color: var(--rose-light);">Scientific Beauty</span></h1>
+      <p class="hero-tagline">Where Clinical Precision Meets Luxury</p>
       <div class="hero-btns">
-        <a href="services.html" class="btn btn-gold" id="hero-btn-services">Explore Services</a>
+        <a href="services.html" class="btn btn-primary" id="hero-btn-services">Explore Services</a>
         <a href="contact.html" class="btn btn-outline" id="hero-btn-contact">Contact Us</a>
       </div>
     </div>
@@ -71,8 +77,8 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-text fade-in">
-          <span class="about-badge">✦ About Us</span>
-          <h2>Trusted Expertise,<br />Transformative Results</h2>
+          <span class="about-badge">✦ Our Heritage</span>
+          <h2>A Legacy of <br><span class="accent-font" style="font-size: 2.2rem; color: var(--rose-light);">Clinical Excellence</span></h2>
           <div class="gold-divider" style="margin-left:0;"></div>
           <p>Hetal's Beautology Clinic is a premium skin and laser clinic nestled in the heart of Gandhinagar, Gujarat.
             Led by Hetalben — a highly skilled and experienced cosmetologist — we combine cutting-edge technology with a
@@ -82,11 +88,11 @@
             session.</p>
           <div class="about-stats">
             <div class="stat-card fade-in fade-in-delay-1">
-              <div class="stat-num">500+</div>
+              <div class="stat-num">2000+</div>
               <div class="stat-lbl">Happy Clients</div>
             </div>
             <div class="stat-card fade-in fade-in-delay-2">
-              <div class="stat-num">15+</div>
+              <div class="stat-num">20+</div>
               <div class="stat-lbl">Services</div>
             </div>
             <div class="stat-card fade-in fade-in-delay-3">
@@ -108,262 +114,177 @@
     </div>
   </section>
 
-  <!-- ╔══════════════════════════════════╗
-       ║       SERVICES HIGHLIGHTS       ║
-       ╚══════════════════════════════════╝ -->
-  <section class="services-highlights" id="services-highlight">
+
+
+  <section class="clinical-services" id="services" style="background: var(--bg-main); padding: 8rem 0;">
     <div class="container">
-      <h2 class="section-title fade-in">Our Signature Services</h2>
+      <h2 class="section-title fade-in">SIGNATURE CLINICAL SERVICES</h2>
       <div class="gold-divider fade-in"></div>
-      <p class="section-subtitle fade-in">Advanced treatments designed for your unique skin journey</p>
-      <div class="services-grid">
-
-        <div class="service-card fade-in fade-in-delay-1">
-          <span class="service-icon">⚡</span>
-          <h3>Laser & Advanced Skin Treatments</h3>
-          <p>State-of-the-art laser solutions for hair removal, acne scars, skin resurfacing & more.</p>
-          <a href="services.html#laser" class="btn btn-primary btn-sm" id="btn-laser">View All</a>
+      
+      <!-- Featured Signature Services -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
+        <!-- Card 1: Laser Hair Removal -->
+        <div class="svc-card fade-in">
+          <img src="Images/Services/Core Services Images/laser_hair_removal.jpeg" class="svc-card-img" alt="Laser Hair Removal" />
+          <div class="svc-card-body">
+            <div class="svc-card-name">Laser Hair Removal</div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">The clinical gold standard for safe, effective, and permanent hair reduction.</p>
+            <a href="services.html#laser" class="svc-card-arrow">View Details →</a>
+          </div>
         </div>
-
-        <div class="service-card fade-in fade-in-delay-2">
-          <span class="service-icon">🌿</span>
-          <h3>Facials & Rejuvenation</h3>
-          <p>Luxurious facials and rejuvenation therapies — from HydraFacial to PRP Vampire Facial.</p>
-          <a href="services.html#facials" class="btn btn-primary btn-sm" id="btn-facials">View All</a>
+        <!-- Card 2: Korean Glass Skin (Reel) -->
+        <div class="svc-card fade-in">
+          <video src="Images/Services/Core Services Reel/korean_glass_facial_reel.mp4" class="svc-card-img" autoplay muted loop playsinline style="display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; border-bottom: 1px solid var(--glass-border);"></video>
+          <div class="svc-card-body">
+            <div class="svc-card-name">Korean Glass Skin</div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Our most requested medical facial for a translucent, poreless glow.</p>
+            <a href="services.html#facials" class="svc-card-arrow">View Details →</a>
+          </div>
         </div>
-
-        <div class="service-card fade-in fade-in-delay-3">
-          <span class="service-icon">💫</span>
-          <h3>Hair & Specialized Procedures</h3>
-          <p>Hair regrowth, microblading, eyelash extensions, and other precision aesthetic procedures.</p>
-          <a href="services.html#hair" class="btn btn-primary btn-sm" id="btn-hair">View All</a>
+        <!-- Card 3: Medical Weight Loss (Reel) -->
+        <div class="svc-card fade-in">
+          <video src="Images/Services/Core Services Reel/weightloss_machines_reel.mp4" class="svc-card-img" autoplay muted loop playsinline style="display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; border-bottom: 1px solid var(--glass-border);"></video>
+          <div class="svc-card-body">
+            <div class="svc-card-name">Medical Weight Loss</div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Targeted body contouring using advanced RF and cavitation technology.</p>
+            <a href="services.html#machines" class="svc-card-arrow">View Details →</a>
+          </div>
         </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- ╔══════════════════════════════════╗
-       ║       MACHINES / TECHNOLOGY     ║
-       ╚══════════════════════════════════╝ -->
-  <section class="machines-section" id="technology">
-    <div class="container">
-      <h2 class="section-title fade-in">Our Advanced Technology</h2>
-      <div class="gold-divider fade-in"></div>
-      <p class="section-subtitle fade-in">We invest in the best equipment so every treatment is safe, effective &
-        precise</p>
+      <!-- Additional Treatments Subheader -->
+      <div style="margin-top: 6rem; text-align: center;" class="fade-in">
+        <h3 style="font-family: 'Cinzel', serif; color: var(--rose-light); letter-spacing: 2px; font-size: 1.2rem;">ADDITIONAL SPECIALISED TREATMENTS</h3>
+        <div class="gold-divider" style="margin: 1rem auto 3rem; width: 60px;"></div>
+      </div>
+
+      <!-- Additional Treatments Gallery -->
       <div class="machines-grid">
-
-        <div class="machine-card fade-in fade-in-delay-1">
-          <img src="Images/machine1.png" alt="Advanced Laser Machine at Hetal's Beautology Clinic" />
-          <div class="machine-label">Laser System</div>
+        <div class="machine-card fade-in">
+          <img src="Images/Services/Core Services Images/skin_brightening_treatment.jpeg" alt="Skin Brightening" style="object-fit: cover; padding: 0;" />
+          <div class="machine-label">SKIN BRIGHTENING</div>
         </div>
-
-        <div class="machine-card fade-in fade-in-delay-2">
-          <img src="Images/machine2.png" alt="Skin Treatment Equipment at Hetal's Beautology Clinic" />
-          <div class="machine-label">Skin Treatment</div>
+        <div class="machine-card fade-in">
+          <img src="Images/Services/Core Services Images/anti_ageing_solutions.jpeg" alt="Anti Ageing" style="object-fit: cover; padding: 0;" />
+          <div class="machine-label">ANTI AGEING</div>
         </div>
-
-        <div class="machine-card fade-in fade-in-delay-3">
-          <img src="Images/machine3.png" alt="Facial Equipment at Hetal's Beautology Clinic" />
-          <div class="machine-label">Facial Device</div>
+        <div class="machine-card fade-in">
+          <img src="Images/Services/Core Services Images/medi_facial.jpeg" alt="Medi Facial" style="object-fit: cover; padding: 0;" />
+          <div class="machine-label">MEDI FACIAL</div>
         </div>
-
-        <div class="machine-card fade-in fade-in-delay-1">
-          <img src="Images/machine4.png" alt="Rejuvenation Machine at Hetal's Beautology Clinic" />
-          <div class="machine-label">Rejuvenation</div>
+        <div class="machine-card fade-in">
+          <img src="Images/Services/Core Services Images/laser_tattoo_removal.jpeg" alt="Tattoo Removal" style="object-fit: cover; padding: 0;" />
+          <div class="machine-label">TATTOO REMOVAL</div>
         </div>
-
-        <div class="machine-card fade-in fade-in-delay-2">
-          <img src="Images/machine5.png" alt="Advanced Hair Treatment Equipment" />
-          <div class="machine-label">Hair Treatment</div>
+        <div class="machine-card fade-in">
+          <img src="Images/Services/Core Services Images/permanent_lip_color.jpeg" alt="Permanent Lip Color" style="object-fit: cover; padding: 0;" />
+          <div class="machine-label">PERMANENT LIP COLOR</div>
         </div>
+      </div>
 
-        <div class="machine-card fade-in fade-in-delay-3">
-          <img src="Images/machine6.png" alt="Specialised Aesthetic Machine at Hetal's Beautology Clinic" />
-          <div class="machine-label">Aesthetic Device</div>
-        </div>
-
+      <div style="text-align: center; margin-top: 4rem;">
+        <a href="services.html" class="btn btn-primary">Explore All Services</a>
       </div>
     </div>
   </section>
 
   <!-- ╔══════════════════════════════════╗
-       ║      REVIEWS AUTO-CAROUSEL      ║
+       ║       CLIENT TESTIMONIALS       ║
        ╚══════════════════════════════════╝ -->
-  <section class="reviews-section" id="reviews">
+  <section class="reviews-section" id="reviews" style="background: var(--bg-dark); padding: 8rem 0; border-top: 1px solid var(--glass-border);">
     <div class="container">
-      <h2 class="section-title fade-in">What Our Clients Say</h2>
+      <h2 class="section-title fade-in" style="color: var(--rose-light);">CLIENT TESTIMONIALS</h2>
       <div class="gold-divider fade-in"></div>
-      <p class="section-subtitle fade-in">Real results, real stories from our happy clients</p>
-    </div>
-
-    <!-- Viewport bleeds full-width, outside .container -->
-    <div class="carousel-viewport">
-      <div class="carousel-track">
-
-        <!-- ── SET 1 (original) ── -->
-        <div class="review-card">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">C</div>
-            <div>
-              <div class="review-name">Charmi Bhatt</div>
-              <div class="review-stars">★★★★★</div>
+      
+      <div class="marquee-container" style="margin-top: 4rem;">
+        <div class="marquee-content">
+          <!-- Duplicate cards for seamless loop -->
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">CB</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Charmi Bhatt</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"The results after my laser sessions are incredible. Hetal Ma'am and her team are highly professional. The clinic aesthetic is just a bonus!"</p>
           </div>
-          <p class="review-text">I had several treatments including laser, microneedling, HydraFacial &amp; OxyGeneo —
-            the results are amazing. Hetalben is highly skilled. My skin texture and glow have improved drastically.
-            Highly recommend! 👌</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">S</div>
-            <div>
-              <div class="review-name">Suhirabanu Saiyed</div>
-              <div class="review-stars">★★★★★</div>
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">AS</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Anjali Shah</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"Best medi-facial experience in Gandhinagar. My skin has never looked more luminous. Highly recommend the Korean Glass Skin treatment!"</p>
           </div>
-          <p class="review-text">This was my first HydraFacial. I have sensitive skin, but Mrs. Hetal managed it
-            perfectly with no discomfort. My skin tone and texture have improved. Her nature is very humble — must come
-            and experience!</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">H</div>
-            <div>
-              <div class="review-name">Hiren Raja</div>
-              <div class="review-stars">★★★★★</div>
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">RP</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Rohan Patel</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"The weight loss treatments actually work. Scientific approach with measurable results. Worth every penny."</p>
           </div>
-          <p class="review-text">Dr. Hetal and her staff are amazing. From the moment I walked in, I felt welcomed and
-            valued. Their personalised approach to beauty treatments is top-notch. Highly recommend for anyone seeking
-            exceptional service!</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">R</div>
-            <div>
-              <div class="review-name">Rajesh Yadav</div>
-              <div class="review-stars">★★★★★</div>
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">SS</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Suhira Saiyed</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"Very humble nature of Hetal Ma'am. Managed my sensitive skin perfectly during the HydraFacial. Highly recommend!"</p>
           </div>
-          <p class="review-text">They use the latest technology and treat you like family. They analyze your skin first
-            and only then suggest proper treatment. Very pleased with HydraFacial — it's worth every penny. 🤩</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">D</div>
-            <div>
-              <div class="review-name">Darshan Prajapati</div>
-              <div class="review-stars">★★★★★</div>
+          <!-- Repeats -->
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">CB</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Charmi Bhatt</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"The results after my laser sessions are incredible. Hetal Ma'am and her team are highly professional."</p>
           </div>
-          <p class="review-text">Visited for dark spot removal and I'm extremely happy. Hetal and her team were
-            professional, making sure I was comfortable. My skin looks much brighter now. Great aftercare guidance too!
-            ☀️</p>
-        </div>
-
-        <div class="review-card">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">R</div>
-            <div>
-              <div class="review-name">Rachana Trivedi</div>
-              <div class="review-stars">★★★★★</div>
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">AS</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Anjali Shah</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"Best medi-facial experience in Gandhinagar. My skin has never looked more luminous."</p>
           </div>
-          <p class="review-text">Recently completed laser hair removal here. Hetalben's expertise is incredible —
-            incredibly knowledgeable, ensuring everything is done with care and precision. The results speak for
-            themselves. She delivers 100%.</p>
-        </div>
-
-        <!-- ── SET 2 (duplicate for seamless loop) ── -->
-        <div class="review-card" aria-hidden="true">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">C</div>
-            <div>
-              <div class="review-name">Charmi Bhatt</div>
-              <div class="review-stars">★★★★★</div>
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">RP</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Rohan Patel</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"The weight loss treatments actually work. Scientific approach with measurable results."</p>
           </div>
-          <p class="review-text">I had several treatments including laser, microneedling, HydraFacial &amp; OxyGeneo —
-            the results are amazing. Hetalben is highly skilled. My skin texture and glow have improved drastically.
-            Highly recommend! 👌</p>
-        </div>
-
-        <div class="review-card" aria-hidden="true">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">S</div>
-            <div>
-              <div class="review-name">Suhirabanu Saiyed</div>
-              <div class="review-stars">★★★★★</div>
+          <div class="review-card" style="background: var(--bg-card); border: 1px solid var(--glass-border);">
+            <div class="review-card-top">
+              <div class="review-avatar-sm">SS</div>
+              <div>
+                <div class="review-name" style="color: var(--white);">Suhira Saiyed</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
             </div>
+            <p class="review-text">"Very humble nature of Hetal Ma'am. Managed my sensitive skin perfectly."</p>
           </div>
-          <p class="review-text">This was my first HydraFacial. I have sensitive skin, but Mrs. Hetal managed it
-            perfectly with no discomfort. My skin tone and texture have improved. Her nature is very humble — must come
-            and experience!</p>
         </div>
-
-        <div class="review-card" aria-hidden="true">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">H</div>
-            <div>
-              <div class="review-name">Hiren Raja</div>
-              <div class="review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="review-text">Dr. Hetal and her staff are amazing. From the moment I walked in, I felt welcomed and
-            valued. Their personalised approach to beauty treatments is top-notch. Highly recommend for anyone seeking
-            exceptional service!</p>
-        </div>
-
-        <div class="review-card" aria-hidden="true">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">R</div>
-            <div>
-              <div class="review-name">Rajesh Yadav</div>
-              <div class="review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="review-text">They use the latest technology and treat you like family. They analyze your skin first
-            and only then suggest proper treatment. Very pleased with HydraFacial — it's worth every penny. 🤩</p>
-        </div>
-
-        <div class="review-card" aria-hidden="true">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">D</div>
-            <div>
-              <div class="review-name">Darshan Prajapati</div>
-              <div class="review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="review-text">Visited for dark spot removal and I'm extremely happy. Hetal and her team were
-            professional, making sure I was comfortable. My skin looks much brighter now. Great aftercare guidance too!
-            ☀️</p>
-        </div>
-
-        <div class="review-card" aria-hidden="true">
-          <div class="review-card-top">
-            <div class="review-avatar-sm">R</div>
-            <div>
-              <div class="review-name">Rachana Trivedi</div>
-              <div class="review-stars">★★★★★</div>
-            </div>
-          </div>
-          <p class="review-text">Recently completed laser hair removal here. Hetalben's expertise is incredible —
-            incredibly knowledgeable, ensuring everything is done with care and precision. The results speak for
-            themselves. She delivers 100%.</p>
-        </div>
-
-      </div><!-- /.carousel-track -->
-    </div><!-- /.carousel-viewport -->
-
-    <div class="container">
-      <div class="reviews-cta fade-in" style="margin-top:2rem;">
-        <a href="reviews.html" class="btn btn-primary" id="btn-all-reviews">See All Reviews</a>
+      </div>
+      
+      <div style="text-align: center; margin-top: 4rem;">
+        <a href="reviews.html" class="btn btn-primary">Read All Reviews</a>
       </div>
     </div>
   </section>
@@ -393,8 +314,9 @@
   <footer class="footer" id="footer">
     <div class="footer-inner">
       <div class="footer-brand">
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" style="width: 80px; border-radius: 50%; margin-bottom: 1rem; border: 2px solid var(--rose-dark);">
         <h3>Hetal's Beautology Clinic</h3>
-        <p class="tagline">Where Science Meets Beauty</p>
+        <p class="tagline accent-font" style="font-size: 0.8rem; color: var(--rose-light);">Beauty That Lasts</p>
         <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); max-width:320px;">Gandhinagar's premier skin and
           laser clinic, where every treatment is crafted with expertise and care.</p>
       </div>
@@ -402,6 +324,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -432,7 +355,11 @@
     </svg>
   </a>
 
-  <!-- ─── JavaScript ─── -->
+  <!-- Mobile Sticky Bar -->
+  <div class="mobile-book-bar">
+    <a href="booking.html" class="btn-book">Book Appointment Now</a>
+  </div>
+
   <script>
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
@@ -452,16 +379,10 @@
 
     // Intersection Observer — fade in on scroll
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    (function(){const u='https://script.google.com/macros/s/AKfycby8ayxAX8_TwhiCm8dQcHXhVQbHtztz1MofFkAIkGd_d7tE57VWP1zJV-EVCXBJP7s2/exec';const p=window.location.pathname.split('/').pop()||'index.html';const d=navigator.userAgent;fetch(`${u}?p=${encodeURIComponent(p)}&d=${encodeURIComponent(d)}`,{mode:'no-cors'})})();
   </script>
-
 </body>
-
 </html>

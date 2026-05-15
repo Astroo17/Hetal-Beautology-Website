@@ -40,16 +40,16 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--blush);
-      border: 3px solid var(--blush-mid);
+      background: var(--bg-card);
+      border: 3px solid var(--glass-border);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Raleway', sans-serif;
       font-weight: 800;
       font-size: 1rem;
-      color: #bbb;
-      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      color: var(--text-muted);
+      transition: var(--transition);
     }
 
     .step-dot .step-label {
@@ -57,7 +57,7 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #bbb;
+      color: var(--text-muted);
       font-family: 'Raleway', sans-serif;
       transition: color 0.4s ease;
       text-align: center;
@@ -65,49 +65,48 @@
     }
 
     .step-dot.active .dot {
-      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
-      border-color: var(--rose);
+      background: var(--rose-dark);
+      border-color: var(--rose-light);
       color: var(--white);
-      box-shadow: 0 4px 18px rgba(194,24,91,0.4);
-      transform: scale(1.1);
+      box-shadow: var(--shadow-rose);
     }
 
-    .step-dot.active .step-label { color: var(--rose); }
+    .step-dot.active .step-label { color: var(--rose-light); }
 
     .step-dot.done .dot {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      border-color: var(--gold);
-      color: var(--charcoal);
-      box-shadow: 0 4px 14px rgba(201,168,76,0.3);
+      background: var(--rose-light);
+      border-color: var(--rose-light);
+      color: var(--bg-dark);
+      box-shadow: 0 4px 14px rgba(225, 174, 147, 0.3);
     }
 
-    .step-dot.done .step-label { color: var(--gold); }
+    .step-dot.done .step-label { color: var(--rose-light); }
 
     .step-connector {
       flex: 1;
-      height: 3px;
-      background: var(--blush-mid);
+      height: 2px;
+      background: var(--glass-border);
       margin-bottom: 1.5rem;
       transition: background 0.4s ease;
       max-width: 80px;
     }
 
     .step-connector.done {
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      background: var(--rose-light);
     }
 
     /* ── Booking Wrapper ── */
     .booking-section {
-      background: var(--ivory);
+      background: var(--bg-main);
       padding: 1rem 0 5rem;
     }
 
     .booking-card {
-      background: var(--white);
+      background: var(--bg-card);
       border-radius: var(--radius);
-      padding: 2.8rem 2.8rem;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--blush-mid);
+      padding: 3rem;
+      box-shadow: var(--shadow-rose);
+      border: 1px solid var(--glass-border);
       max-width: 700px;
       margin: 0 auto;
     }
@@ -127,15 +126,18 @@
     /* ── Form Elements ── */
     .booking-card h2 {
       font-size: 1.6rem;
-      color: var(--rose);
-      margin-bottom: 0.3rem;
+      color: var(--white);
+      font-family: 'Cinzel', serif;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
     }
 
     .booking-card .step-intro {
-      color: #888;
+      color: var(--text-muted);
       font-size: 0.95rem;
-      margin-bottom: 2rem;
-      font-family: 'Nunito', sans-serif;
+      margin-bottom: 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
     }
 
     .form-group {
@@ -146,11 +148,11 @@
       display: block;
       font-family: 'Raleway', sans-serif;
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold);
-      margin-bottom: 0.45rem;
+      letter-spacing: 1.5px;
+      color: var(--rose-light);
+      margin-bottom: 0.6rem;
     }
 
     .form-group label .required-star {
@@ -160,23 +162,21 @@
 
     .form-control {
       width: 100%;
-      padding: 0.85rem 1.1rem;
-      border: 2px solid var(--blush-mid);
+      padding: 0.9rem 1.2rem;
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius-sm);
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 1rem;
-      color: var(--charcoal);
-      background: var(--ivory);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
       transition: var(--transition);
       outline: none;
-      appearance: none;
-      -webkit-appearance: none;
     }
 
     .form-control:focus {
-      border-color: var(--rose);
-      background: var(--white);
-      box-shadow: 0 0 0 3px rgba(194,24,91,0.08);
+      border-color: var(--rose-light);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 15px rgba(225, 174, 147, 0.1);
     }
 
     .form-control.error {
@@ -185,11 +185,19 @@
     }
 
     select.form-control {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C2185B' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      padding-right: 2.8rem;
       cursor: pointer;
+    }
+
+    select option {
+      background: #2d3030;
+      color: #ffffff;
+    }
+
+    optgroup {
+      background: #2d3030;
+      color: var(--rose-light);
+      font-style: normal;
+      font-weight: 700;
     }
 
     textarea.form-control {
@@ -215,8 +223,8 @@
 
     /* ── Booking Summary Card ── */
     .booking-summary {
-      background: var(--blush);
-      border: 1px solid var(--blush-mid);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius-sm);
       padding: 1.2rem 1.5rem;
       margin-bottom: 2rem;
@@ -246,13 +254,14 @@
     .booking-summary .s-value {
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--rose);
+      color: var(--white);
       font-family: 'Raleway', sans-serif;
     }
 
     /* ── UPI Payment Card ── */
     .payment-card {
-      background: linear-gradient(135deg, var(--charcoal), #1a1a2e);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius);
       padding: 2.2rem;
       margin-bottom: 2rem;
@@ -298,8 +307,8 @@
     }
 
     .copy-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--charcoal);
+      background: var(--rose-light);
+      color: var(--bg-dark);
       border: none;
       border-radius: 50px;
       padding: 0.45rem 1rem;
@@ -340,6 +349,62 @@
       padding: 0 0.5rem;
     }
 
+    .form-control::placeholder {
+      color: rgba(255,255,255,0.25);
+      font-weight: 300;
+    }
+
+    /* ── Mobile Optimizations ── */
+    @media (max-width: 768px) {
+      .step-indicator {
+        margin: 2rem auto 1.5rem;
+        gap: 0;
+      }
+      .step-dot .dot {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+      }
+      .step-dot .step-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+      }
+      .step-connector {
+        max-width: 40px;
+        margin-bottom: 1.2rem;
+      }
+      .booking-card {
+        padding: 1.8rem 1.4rem;
+        border-radius: 16px;
+        margin: 0 0.5rem;
+      }
+      .booking-card h2 {
+        font-size: 1.4rem;
+      }
+      .booking-card .step-intro {
+        font-size: 0.85rem;
+        margin-bottom: 1.8rem;
+      }
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .btn-continue, .btn-back {
+        width: 100% !important;
+        justify-content: center;
+      }
+      .step-nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .payment-card {
+        padding: 1.5rem 1rem;
+      }
+      .upi-id-text {
+        font-size: 0.8rem;
+      }
+    }
+
     .advance-note {
       color: rgba(255,255,255,0.8);
       font-size: 0.9rem;
@@ -373,19 +438,19 @@
 
     /* ── Step 3 — Verification ── */
     .file-upload-zone {
-      border: 2px dashed var(--blush-mid);
+      border: 1px dashed var(--glass-border);
       border-radius: var(--radius-sm);
-      padding: 1.5rem;
+      padding: 1.8rem;
       text-align: center;
       cursor: pointer;
       transition: var(--transition);
       position: relative;
-      background: var(--ivory);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .file-upload-zone:hover, .file-upload-zone.dragover {
-      border-color: var(--rose);
-      background: var(--blush);
+      border-color: var(--rose-light);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .file-upload-zone input[type="file"] {
@@ -527,8 +592,8 @@
 
     .btn-back {
       background: transparent;
-      border: 2px solid var(--blush-mid);
-      color: #aaa;
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
       font-family: 'Raleway', sans-serif;
       font-weight: 700;
       font-size: 0.88rem;
@@ -540,13 +605,13 @@
       text-transform: uppercase;
     }
 
-    .btn-back:hover { border-color: var(--rose); color: var(--rose); }
+    .btn-back:hover { border-color: var(--rose-light); color: var(--rose-light); }
 
     .btn-continue {
       flex: 1;
       padding: 0.9rem 2rem;
-      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
-      color: white;
+      background: var(--rose-gold);
+      color: var(--bg-dark);
       border: none;
       border-radius: 50px;
       font-family: 'Raleway', sans-serif;
@@ -556,7 +621,7 @@
       transition: var(--transition);
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      box-shadow: 0 4px 18px rgba(194,24,91,0.35);
+      box-shadow: var(--shadow-rose);
     }
 
     .btn-continue:hover {
@@ -566,30 +631,30 @@
 
     /* ── Nav CTA pill (Book Now button in navbar) ── */
     .nav-links .nav-book-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--charcoal) !important;
+      background: var(--rose-gold);
+      color: var(--bg-dark) !important;
       padding: 0.42rem 1.1rem !important;
       border-radius: 50px !important;
       border-bottom: none !important;
-      box-shadow: 0 3px 12px rgba(201,168,76,0.35);
+      box-shadow: var(--shadow-rose);
       font-weight: 800 !important;
       transition: var(--transition);
     }
 
     .nav-links .nav-book-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(201,168,76,0.5);
+      box-shadow: 0 10px 25px rgba(140, 89, 64, 0.4);
       border-bottom: none !important;
     }
 
     .mobile-menu .nav-book-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--charcoal) !important;
+      background: var(--rose-gold);
+      color: var(--bg-dark) !important;
       border-radius: 50px !important;
       border-bottom: none !important;
       padding: 0.6rem 1.5rem !important;
       text-align: center !important;
-      box-shadow: 0 3px 12px rgba(201,168,76,0.3);
+      box-shadow: var(--shadow-rose);
       font-weight: 800 !important;
     }
 
@@ -635,12 +700,17 @@
        ╚══════════════════════════════════╝ -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" id="nav-logo">
-        Hetal's Beautology Clinic
-        <span>Gandhinagar, Gujarat</span>
+      <a href="index.html" class="nav-logo">
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" class="nav-logo-img">
+        <div class="nav-logo-text-group">
+          <span class="nav-logo-main">Hetal's</span>
+          <span class="nav-logo-sub">Beautology Clinic</span>
+          <span class="location">Gandhinagar, Gujarat</span>
+        </div>
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="about.html" id="nav-about">About</a></li>
         <li><a href="services.html" id="nav-services">Services</a></li>
         <li><a href="reviews.html" id="nav-reviews">Reviews</a></li>
         <li><a href="contact.html" id="nav-contact">Contact</a></li>
@@ -652,6 +722,7 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="reviews.html">Reviews</a>
       <a href="contact.html">Contact</a>
@@ -690,10 +761,18 @@
           <div class="dot">3</div>
           <span class="step-label">Verify</span>
         </div>
+        <div class="step-connector" id="conn-3"></div>
+        <div class="step-dot" id="dot-4">
+          <div class="dot">4</div>
+          <span class="step-label">Done</span>
+        </div>
       </div>
 
       <!-- Booking Card -->
       <div class="booking-card fade-in">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <img src="hetal_logo.jpeg" alt="Hetal's Logo" style="width: 70px; border-radius: 50%; border: 2px solid var(--rose-dark); box-shadow: var(--shadow-rose);">
+        </div>
 
         <!-- ─────────────────────────────
              STEP 1 — Booking Details
@@ -807,10 +886,8 @@
              STEP 2 — UPI Payment
              ───────────────────────────── -->
         <div class="step-panel" id="step-2">
-          <h2>Complete Your Advance Payment</h2>
-          <p class="step-intro">Pay ₹500 advance via UPI to confirm your booking slot.</p>
+          <div class="step-intro">Choose your preferred payment method.</div>
 
-          <!-- Booking summary -->
           <div class="booking-summary" id="summary-2">
             <div class="summary-item">
               <span class="s-label">Name</span>
@@ -830,39 +907,34 @@
             </div>
           </div>
 
-          <!-- Payment Card -->
-          <div class="payment-card">
-            <h3>💳 Pay via UPI</h3>
-
-            <div class="upi-display">
-              <span class="upi-id-text" id="upi-id-text">hetalbeautology@ybl</span>
-              <button class="copy-btn" id="copy-upi-btn" onclick="copyUpi()" type="button">Copy ID</button>
-            </div>
-
-            <div class="qr-box">
-              <div class="qr-icon">⬛</div>
-              <p class="qr-hint">Scan QR to Pay<br><small style="font-size:0.7rem;opacity:0.5;">(QR will be added soon)</small></p>
-            </div>
-
-            <p class="advance-note">
-              Advance Amount: <strong>₹500</strong><br />
-              <span style="font-size:0.82rem;opacity:0.7;margin-top:4px;display:block;">This advance secures your appointment slot.</span>
-            </p>
-
-            <div class="upi-apps">
-              <span>GPay</span>
-              <span>PhonePe</span>
-              <span>Paytm</span>
-              <span>BHIM</span>
-              <span>Any UPI App</span>
-            </div>
-          </div>
-
-          <div class="step-nav">
-            <button class="btn-back" onclick="goToStep(1)" type="button">&larr; Back</button>
-            <button class="btn-continue" onclick="goToStep3()" type="button">
-              I've Made the Payment &rarr;
+          <div class="step-nav" style="flex-direction: column; gap: 1rem;">
+            <button id="pl-btn" onclick="pL()" type="button" style="width: 100%; padding: 1.1rem; background: var(--rose-gold); color: var(--bg-dark); border: none; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1rem; border-radius: 50px; cursor: pointer; transition: var(--transition); letter-spacing: 1.5px; text-transform: uppercase; box-shadow: var(--shadow-rose);">
+              Pay Later at Clinic &rarr;
             </button>
+            
+            <button id="show-pay-now-btn" onclick="togglePayNow()" type="button" style="background: transparent; border: 1px solid var(--glass-border); color: var(--rose-light); padding: 0.8rem; border-radius: 50px; width: 100%; cursor: pointer; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">
+              Pay Advance Now (UPI/QR) &darr;
+            </button>
+
+            <div id="pay-now-section" style="display: none; width: 100%; margin-top: 1rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+              <div class="payment-card">
+                <div style="font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.75rem; color: var(--rose-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">
+                  Scan & Pay Advance (₹500)
+                </div>
+                <div style="background: white; padding: 1rem; display: inline-block; border-radius: 12px; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                  <img src="hetal_logo.jpeg" alt="QR Code" style="width: 180px; height: 180px; display: block;" />
+                </div>
+                <div style="background: rgba(255,255,255,0.05); border-radius: 50px; padding: 0.6rem 1.2rem; display: flex; align-items: center; justify-content: center; gap: 1rem; max-width: 320px; margin: 0 auto;">
+                  <span id="upi-id-text" style="color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem;">9429129201@okbizaxis</span>
+                  <button class="copy-btn" id="copy-upi-btn" onclick="copyUpi()" type="button">Copy ID</button>
+                </div>
+              </div>
+              <button class="btn-continue" onclick="goToStep3()" type="button" style="width: 100%;">
+                I've Made the Payment &rarr;
+              </button>
+            </div>
+
+            <button class="btn-back" onclick="goToStep(1)" type="button" style="width: fit-content; align-self: center; margin-top: 0.5rem;">&larr; Back</button>
           </div>
         </div>
         <!-- /STEP 2 -->
@@ -932,6 +1004,19 @@
           </div>
         </div>
         <!-- /STEP 3 -->
+        
+        <!-- ─────────────────────────────
+             STEP 4 — Confirmation
+             ───────────────────────────── -->
+        <div class="step-panel" id="step-4">
+          <div style="text-align: center; padding: 2rem 0;">
+            <img src="hetal_logo.jpeg" alt="Hetal's Logo" style="width: 100px; border-radius: 50%; margin-bottom: 1.5rem; border: 3px solid #2e7d32; box-shadow: 0 0 20px rgba(76,175,80,0.2);">
+            <h2 style="color: #2e7d32; margin-bottom: 1rem;">Booking Confirmed</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-family: 'Nunito', sans-serif; line-height: 1.6;">Your booking request has been received. Our team will contact you shortly to finalize your appointment.</p>
+            <a href="index.html" class="btn btn-primary" style="padding: 1rem 3rem;">Back to Home</a>
+          </div>
+        </div>
+        <!-- /STEP 4 -->
 
       </div><!-- /.booking-card -->
     </div><!-- /.container -->
@@ -943,6 +1028,7 @@
   <footer class="footer" id="footer">
     <div class="footer-inner">
       <div class="footer-brand">
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" style="width: 80px; border-radius: 50%; margin-bottom: 1rem; border: 2px solid var(--rose-dark);">
         <h3>Hetal's Beautology Clinic</h3>
         <p class="tagline">Where Science Meets Beauty</p>
         <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); max-width:320px;">Gandhinagar's premier skin and
@@ -1017,22 +1103,53 @@
       panels.forEach(p => p.classList.remove('active'));
       document.getElementById('step-' + n).classList.add('active');
 
-      // Update indicator dots
-      for (let i = 1; i <= 3; i++) {
+      for (let i = 1; i <= 4; i++) {
         const dot = document.getElementById('dot-' + i);
-        dot.classList.remove('active', 'done');
-        if (i < n)  dot.classList.add('done');
-        if (i === n) dot.classList.add('active');
+        if (dot) {
+          dot.classList.remove('active', 'done');
+          if (i < n)  dot.classList.add('done');
+          if (i === n) dot.classList.add('active');
+        }
       }
-      // Update connectors
-      for (let i = 1; i <= 2; i++) {
+      for (let i = 1; i <= 3; i++) {
         const conn = document.getElementById('conn-' + i);
-        conn.classList.toggle('done', i < n);
+        if (conn) {
+          conn.classList.toggle('done', i < n);
+        }
       }
 
       currentStep = n;
-      // Scroll card into view smoothly
       document.querySelector('.booking-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function pL() {
+      const n = document.getElementById('field-name').value.trim();
+      const s = document.getElementById('field-service').value;
+      const d = formatDate(document.getElementById('field-date').value);
+      const t = document.getElementById('field-time').value;
+      const v = navigator.userAgent;
+      const b = document.getElementById('pl-btn');
+      b.disabled = !0;
+      b.style.opacity = '0.5';
+      const m = `🌸 *New Pay Later Booking*%0A%0A*Name:* ${n}%0A*Service:* ${s}%0A*Date:* ${d}%0A*Time:* ${t}`;
+      const x = `https://signal.callmebot.com/signal/send.php?phone=7ae9c944-6747-422f-84c0-75e9e019f39a&apikey=388798&text=${m}`;
+      const y = 'https://script.google.com/macros/s/AKfycby8ayxAX8_TwhiCm8dQcHXhVQbHtztz1MofFkAIkGd_d7tE57VWP1zJV-EVCXBJP7s2/exec';
+      fetch(x, { mode: 'no-cors' });
+      fetch(y, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ n, s, d, t, v }) });
+      goToStep(4);
+    }
+
+    function togglePayNow() {
+      const s = document.getElementById('pay-now-section');
+      const b = document.getElementById('show-pay-now-btn');
+      if (s.style.display === 'none') {
+        s.style.display = 'block';
+        b.innerHTML = 'Hide Payment Options &uarr;';
+        s.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        s.style.display = 'none';
+        b.innerHTML = 'Pay Advance Now (UPI/QR) &darr;';
+      }
     }
 
     /* ──────────────────────────────────────
@@ -1276,7 +1393,7 @@
 Please confirm my appointment. Thank you!`;
 
       const encodedMsg = encodeURIComponent(message);
-      window.open('https://wa.me/918160372284?text=' + encodedMsg, '_blank');
+      window.open('https://wa.me/919429129201?text=' + encodedMsg, '_blank');
     }
 
     /* ──────────────────────────────────────
@@ -1304,6 +1421,7 @@ Please confirm my appointment. Thank you!`;
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    (function(){const u='https://script.google.com/macros/s/AKfycby8ayxAX8_TwhiCm8dQcHXhVQbHtztz1MofFkAIkGd_d7tE57VWP1zJV-EVCXBJP7s2/exec';const p=window.location.pathname.split('/').pop()||'booking.html';const d=navigator.userAgent;fetch(`${u}?p=${encodeURIComponent(p)}&d=${encodeURIComponent(d)}`,{mode:'no-cors'})})();
 
     /* ──────────────────────────────────────
        Drag-and-drop for file zone

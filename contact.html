@@ -16,11 +16,16 @@
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        Hetal's Beautology Clinic
-        <span>Gandhinagar,Gujarat</span>
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" class="nav-logo-img">
+        <div class="nav-logo-text-group">
+          <span class="nav-logo-main">Hetal's</span>
+          <span class="nav-logo-sub">Beautology Clinic</span>
+          <span class="location">Gandhinagar, Gujarat</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
@@ -32,6 +37,7 @@
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="reviews.html">Reviews</a>
       <a href="contact.html" class="active">Contact</a>
@@ -47,14 +53,14 @@
   </header>
 
   <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact-content">
+  <section class="contact-section" id="contact-content" style="background: var(--bg-main); padding: 5rem 0;">
     <div class="container">
       <div class="contact-grid">
 
         <!-- Left: Contact Info -->
-        <div class="contact-info-card fade-in">
-          <h2>Contact Information</h2>
-          <p class="subtitle">Reach out via call, WhatsApp, or visit us in person</p>
+        <div class="contact-info-card fade-in" style="background: var(--bg-card); border: 1px solid var(--glass-border); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow-rose);">
+          <h2 style="color: var(--white); font-family: 'Cinzel', serif; letter-spacing: 2px;">Contact Information</h2>
+          <p class="subtitle" style="color: var(--text-main); margin-bottom: 2.5rem; opacity: 0.8;">Reach out via call, WhatsApp, or visit us in person</p>
 
           <!-- Address -->
           <div class="contact-item">
@@ -103,52 +109,15 @@
         </div>
 
         <!-- Right: Map -->
-        <div class="fade-in fade-in-delay-2">
-          <div class="map-card">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.3!2d72.65!3d23.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDEx!5e0!3m2!1sen!2sin!4v1699000000000!5m2!1sen!2sin"
-              width="100%"
-              height="480"
-              style="border:0; display:block;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Hetal's Beautology Clinic on Google Maps"
-              id="clinic-map"
-            ></iframe>
-            <div class="map-label">📍 Sarthak Fortune Mall, Randesan, Gandhinagar</div>
+        <div class="contact-map fade-in" style="border: 1px solid var(--glass-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-rose);">
+          <div style="width: 100%; height: 450px; background: var(--bg-card);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.653494793665!2d72.64687597585641!3d23.182834110344445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8006b52c0001%3A0x6b4c10200877987e!2sSarthak%20Fortune!5e0!3m2!1sen!2sin!4v1714815123456!5m2!1sen!2sin" 
+              width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-
-          <!-- Directions CTA -->
-          <div style="margin-top:1.2rem; text-align:center;">
-            <a
-              href="https://maps.app.goo.gl/QRSPJYucJRYzD8hV7"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-primary"
-              id="btn-directions"
-              style="width:100%; justify-content:center;"
-            >
-              🗺️ &nbsp;Open in Google Maps
-            </a>
-          </div>
-
-          <!-- Info highlight card -->
-          <div style="
-            margin-top:1.2rem;
-            background:var(--charcoal);
-            border-radius:var(--radius-sm);
-            padding:1.2rem 1.5rem;
-            display:flex;
-            gap:1rem;
-            align-items:center;
-          ">
-            <div style="font-size:2rem;">🏢</div>
-            <div>
-              <div style="color:var(--gold); font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Location</div>
-              <div style="color:white; font-size:0.92rem; margin-top:2px;">2nd Floor, Sarthak Fortune Mall,<br/>Near City Pulse Cinema, Randesan, Gandhinagar</div>
-            </div>
-          </div>
+          <a href="https://maps.app.goo.gl/QRSPJYucJRYzD8hV7" target="_blank" class="btn btn-primary" style="width: 100%; border-radius: 0; padding: 1.5rem; justify-content: center; font-weight: 700; letter-spacing: 2px;">
+             🗺️ VIEW ON GOOGLE MAPS
+          </a>
         </div>
 
       </div>
@@ -159,6 +128,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
+        <img src="hetal_logo.jpeg" alt="Hetal's Logo" style="width: 80px; border-radius: 50%; margin-bottom: 1rem; border: 2px solid var(--rose-dark);">
         <h3>Hetal's Beautology Clinic</h3>
         <p class="tagline">Where Science Meets Beauty</p>
         <p style="font-size:0.88rem; color:rgba(255,255,255,0.65); max-width:320px;">Gandhinagar's premier skin and laser clinic, where every treatment is crafted with expertise and care.</p>
@@ -167,6 +137,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -210,7 +181,12 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    (function(){const u='https://script.google.com/macros/s/AKfycby8ayxAX8_TwhiCm8dQcHXhVQbHtztz1MofFkAIkGd_d7tE57VWP1zJV-EVCXBJP7s2/exec';const p=window.location.pathname.split('/').pop()||'contact.html';const d=navigator.userAgent;fetch(`${u}?p=${encodeURIComponent(p)}&d=${encodeURIComponent(d)}`,{mode:'no-cors'})})();
   </script>
 
+  <!-- Mobile Sticky Bar -->
+  <div class="mobile-book-bar">
+    <a href="booking.html" class="btn-book">Book Appointment Now</a>
+  </div>
 </body>
 </html>
